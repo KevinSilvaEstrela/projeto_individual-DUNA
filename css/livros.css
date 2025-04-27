@@ -1,0 +1,45 @@
+.livros {
+    background-size: cover;
+}
+
+.livros p {
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+    padding-left: 40px;
+}
+
+.livros img {
+    width: 305px;
+    height: 465px;
+    border: var(--douradoClaro) 3px solid;
+}
+
+.livros .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.livro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.livro p {
+    padding-right: 40px;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: var(--dourado);
+    width: 100px;
+    font-size: 70px;
+    position: relative;
+}

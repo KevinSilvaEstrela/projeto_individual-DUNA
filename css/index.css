@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "Dune Rise";
+    src: url(../assets/font/Dune_Rise.ttf);
+}
+:root {
+    --dourado: #EFA608;
+    --douradoClaro: #FFCE65;
+    --cinza: #020300;
+}
+
+body {
+    margin: 0;
+    font-family: "Dune Rise";
+    background-color: var(--cinza);
+}
+
+.home {
+    margin: 0;
+    background-image: url('../assets/wallpaper-home.png');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+.home h1 {
+    padding-top: 120px;
+    font-size: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home span{
+    font-size: 70px;
+    color: var(--douradoClaro);
+}
+
+h2 {
+    color: var(--dourado);
+    padding-left: 40px;
+    font-size: 35px;
+}

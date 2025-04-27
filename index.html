@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/livros.css">
+    <link rel="stylesheet" href="css/personagens.css">
+    <title>Home</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"><img src="assets/logo.png" alt=""></a>
+        </div>
+
+        <div class="container">
+            <ul class="navbar">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#livros">Livros</a>
+                </li>
+                <li>
+                    <a href="#personagens">Personagens</a>
+                </li>
+                <li>
+                    <a href="">Entrar</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="home">
+        <h1>Bem Vindo ao <br><span>WebSite Duna</span> </h1>
+    </div>
+
+    <div class="sobre" id="sobre">
+        <h2>Historia do universo Duna</h2>
+        <h3>“Aquele que controla a especiaria controla o universo.”</h3>
+        <div class="container">
+            <div class="texto">
+                <p>Duna é uma franquia de livros de ficção cientifíca criada pelo escritor e jornalista estadunidense Frank Herbert em 1965.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium aut ipsam commodi odit ratione nihil iste eligendi, ipsa deleniti delectus ab exercitationem, possimus quia ex maiores hic placeat nesciunt dolores?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempore optio nam rerum labore alias eaque consequatur deleniti! Inventore sapiente sed aperiam aliquid odio ut facilis distinctio neque eveniet ratione.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum esse labore rerum quam dolores molestiae sed odio incidunt consequatur dolorum accusantium saepe dignissimos repudiandae, doloremque facere nemo nam ipsa non!
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit excepturi eligendi doloribus fugit similique ipsum pariatur. Commodi sapiente quidem unde quasi labore voluptatem veniam non delectus, natus quae expedita deleniti.
+                </p>
+            </div>
+
+            <div class="quadro">
+                <img src="assets/Frank Herbert.png" alt="">
+                <p>Frank Herbert (1920-1986)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="livros" id="livros">
+        <h2>Livros da franquia</h2>
+        <p>A franquia é composta por mais de 13 livros escritos ao longo das décadas, e os seus principais são:</p> 
+  
+        <div class="container">
+            <button onclick="diminuir()"><</button>
+
+            <div class="livro" id="livro">
+                <img src="assets/livro 1.jpg" alt="">
+                <p>Duna (1965): Livro 1</p>
+            </div>
+            
+            <button onclick="aumentar()">></button>
+        </div>
+
+    </div>
+
+    <div class="personagens" id="personagens">
+        <h2>Personagens da franquia</h2>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var n = 1;
+    
+    function aumentar() {
+        n++    
+        if (n > 6) {
+            n = 1
+        }
+
+        livro.innerHTML = `<img src="assets/livro ${n}.jpg" alt="">`
+        
+        if (n == 1) {
+            livro.innerHTML += `<p>Duna (1965): Livro 1</p>`
+        } else if (n == 2) {
+            livro.innerHTML += `<p>O Messias de Duna (1969): Livro 2</p>`
+        } else if (n == 3) {
+            livro.innerHTML += `<p>Os Filhos de Duna (1976): Livro 3</p>`
+        } else if (n == 4) {
+            livro.innerHTML += `<p>O Imperador Deus  de Duna (1976): Livro 4</p>`
+        } else if (n == 5) {
+            livro.innerHTML += `<p>Os Hereges de Duna (1976): Livro 5</p>`
+        } else if (n == 6) {
+            livro.innerHTML += `<p>As Herdeiras de Duna (1976): Livro 6</p>`
+        }
+    }
+
+    
+    
+    function diminuir() {
+        n--
+        if(n < 1) {
+            n = 6
+        }
+
+        livro.innerHTML = `<img src="assets/livro ${n}.jpg" alt="">`
+        
+        if (n == 1) {
+            livro.innerHTML += `<p>Duna (1965): Livro 1</p>`
+        } else if (n == 2) {
+            livro.innerHTML += `<p>O Messias de Duna (1969): Livro 2</p>`
+        } else if (n == 3) {
+            livro.innerHTML += `<p>Os Filhos de Duna (1976): Livro 3</p>`
+        } else if (n == 4) {
+            livro.innerHTML += `<p>O Imperador Deus  de Duna (1976): Livro 4</p>`
+        } else if (n == 5) {
+            livro.innerHTML += `<p>Os Hereges de Duna (1976): Livro 5</p>`
+        } else if (n == 6) {
+            livro.innerHTML += `<p>As Herdeiras de Duna (1976): Livro 6</p>`
+        }
+    }
+    
+
+</script>
