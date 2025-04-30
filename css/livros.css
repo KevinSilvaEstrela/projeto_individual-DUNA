@@ -1,5 +1,6 @@
 .livros {
     background-size: cover;
+    padding-top: 50px;
 }
 
 .livros p {
@@ -41,5 +42,4 @@ button {
     color: var(--dourado);
     width: 100px;
     font-size: 70px;
-    position: relative;
 }

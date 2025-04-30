@@ -1,6 +1,6 @@
 .header {
     width: 100%;
-    height: 73px;
+    height: 58px;
     background-color: #020300;
     display: flex;
     flex-direction: row;
@@ -18,7 +18,8 @@
 }
 
 .navbar {
-    font-size: 17px;
+    gap: 30px;
+    font-size: 12px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
