@@ -18,12 +18,14 @@
     padding-top: 50px;
 }
 
-.paul_atreides img{
+.paul_atreides img {
     width: 273px;
     height: 335px;
+    border: 3px solid var(--dourado);
+    border-radius: 35px;
 }
 
-.paul_atreides p{
+.paul_atreides p {
     color: white;
     font-family: sans-serif;
 }
@@ -42,6 +44,7 @@
     padding-right: 70px;
     width: 130px;
     height: 120px;
+    border: none;
 }
 
 /*Personagem 2*/
@@ -61,12 +64,14 @@
     padding-top: 50px;
 }
 
-.jessica_atreides img{
+.jessica_atreides img {
     width: 273px;
     height: 335px;
+    border: 3px solid var(--dourado);
+    border-radius: 35px;
 }
 
-.jessica_atreides p{
+.jessica_atreides p {
     color: white;
     font-family: sans-serif;
 }
@@ -85,6 +90,7 @@
     padding-left: 70px;
     width: 130px;
     height: 120px;
+    border: none;
 }
 
 /*Personagem 3*/
@@ -104,12 +110,14 @@
     padding-top: 50px;
 }
 
-.leto_atreides img{
+.leto_atreides img {
     width: 273px;
     height: 335px;
+    border: 3px solid var(--dourado);
+    border-radius: 35px;
 }
 
-.leto_atreides p{
+.leto_atreides p {
     color: white;
     font-family: sans-serif;
 }
@@ -128,6 +136,7 @@
     padding-right: 70px;
     width: 130px;
     height: 120px;
+    border: none;
 }
 
 /*Personagem 4*/
@@ -147,12 +156,14 @@
     padding-top: 50px;
 }
 
-.vladimir img{
-    width: 273px;
-    height: 335px;
+.vladimir img {
+    width: 279px;
+    height: 341px;
+    border: 3px solid var(--dourado);
+    border-radius: 35px;
 }
 
-.vladimir p{
+.vladimir p {
     color: white;
     font-family: sans-serif;
 }
@@ -171,6 +182,7 @@
     padding-left: 40px;
     width: 230px;
     height: 230px;
+    border: none;
 }
 
 /*Personagem 5*/
@@ -190,12 +202,14 @@
     padding-top: 50px;
 }
 
-.feyd-rautha img{
+.feyd-rautha img {
     width: 273px;
     height: 335px;
+    border: 3px solid var(--dourado);
+    border-radius: 35px;
 }
 
-.feyd-rautha p{
+.feyd-rautha p {
     color: white;
     font-family: sans-serif;
 }
@@ -214,4 +228,5 @@
     padding-right: 40px;
     width: 230px;
     height: 230px;
+    border: none;
 }

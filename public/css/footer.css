@@ -1,0 +1,13 @@
+.footer {
+    border-top: 1px solid var(--dourado);
+    height: 200px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer p {
+    color: white;
+    font-family: sans-serif;
+}

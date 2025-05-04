@@ -1,0 +1,43 @@
+.planetas {
+    padding-top: 50px;
+}
+
+.planetas .container {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.planetas img {
+    width: 266px;
+    height: 266px;
+}
+
+.planetas h3{
+    color: white;
+    font-family: sans-serif;
+}
+
+.planetas p{
+    color: white;
+    font-family: sans-serif;
+}
+
+.planeta2 {
+    padding-top: 200px;   
+}
+
+.planeta3 {
+    padding-top: 400px;   
+}
+
+
+.planeta5 {
+    padding-top: 200px;   
+}
+
+.planeta6 {
+    padding-top: 400px;   
+}

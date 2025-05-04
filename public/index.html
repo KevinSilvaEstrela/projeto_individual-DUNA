@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/livros.css">
     <link rel="stylesheet" href="css/personagens.css">
+    <link rel="stylesheet" href="css/planetas.css">
+    <link rel="stylesheet" href="css/adaptacoes.css">
+    <link rel="stylesheet" href="css/footer.css">
     <title>Home</title>
 </head>
 
@@ -34,7 +37,10 @@
                     <a href="#personagens">Personagens</a>
                 </li>
                 <li>
-                    <a href="#">Planetas</a>
+                    <a href="#planetas">Planetas</a>
+                </li>
+                <li>
+                    <a href="#adaptacoes">Adaptacoes</a>
                 </li>
                 <li>
                     <a href="login.html">Entrar</a>
@@ -174,19 +180,110 @@
                 <img src="assets/harkonnen icon.png" alt="">
             </div>
         </div>
-
-
     </div>
 
-</body>
+    <div class="planetas" id="planetas">
+        <h2>Planetas</h2>
+        <h3>Principais planetas do universo</h3>
+        
+        <div class="container">
+            <div class="planeta1">
+                <img src="./assets/planeta1.png" alt="">
+                <p>Arrakis</p>
+            </div>
 
+            <div class="planeta2">
+                <img src="./assets/planeta2.png" alt="">
+                <p>Caladan</p>
+            </div>
+            
+            <div class="planeta3">
+                <img src="./assets/planeta3.png" alt="">
+                <p>Gieid Prime</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="planeta4">
+                <img src="./assets/planeta4.png" alt="">
+                <p>Chapterhouse</p>
+            </div>
+
+            <div class="planeta5">
+                <img src="./assets/planeta5.png" alt="">
+                <p>Kaitain</p>
+            </div>
+            
+            <div class="planeta6">
+                <img src="./assets/planeta6.png" alt="">
+                <p>Salusa Secundus</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="adaptacoes" id="adaptacoes">
+        <h2>Adaptacoes</h2>
+        <h3>Já houveram diversas adaptações tanto para o cinema quanto para a televisão</h3>
+
+        <div class="container">
+            <div>
+                <p>Duna de Jodorowsky (1975)</p>
+                <img src="./assets/duna-jodorowsky.png" alt="">
+                <p class="descricao">O diretor Alejandro Jodorowsky tentou criar uma adaptação para o cinema em 1975, mas acabou não saindo da pré-produção.</p>    
+            </div>
+            <div>
+                <p>Duna (1984)</p>
+                <img src="./assets/duna-1984.png" alt="">
+                <p class="descricao">O diretor Alejandro Jodorowsky tentou criar uma adaptação para o cinema em 1975, mas acabou não saindo da pré-produção.</p>    
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <p>Duna - Série (2000)</p>
+                <img src="./assets/duna-2000.png" alt="">
+                <p class="descricao">O diretor Alejandro Jodorowsky tentou criar uma adaptação para o cinema em 1975, mas acabou não saindo da pré-produção.</p>    
+            </div>
+            <div>
+                <p>Os Filhos de Duna - Série (2003)</p>
+                <img src="./assets/duna-2003.png" alt="">
+                <p class="descricao">O diretor Alejandro Jodorowsky tentou criar uma adaptação para o cinema em 1975, mas acabou não saindo da pré-produção.</p>    
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <p>Duna (2021)</p>
+                <img src="./assets/duna-2021.png" alt="">
+                <p class="descricao">O diretor Alejandro Jodorowsky tentou criar uma adaptação para o cinema em 1975, mas acabou não saindo da pré-produção.</p>    
+            </div>
+            <div>
+                <p>Duna - parte 2 (2024)</p>
+                <img src="./assets/duna-2024.png" alt="">
+                <p class="descricao">O diretor Alejandro Jodorowsky tentou criar uma adaptação para o cinema em 1975, mas acabou não saindo da pré-produção.</p>    
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <p>Duna: A Profecia (2024)</p>
+                <img src="./assets/duna-profecia.png" alt="">
+                <p class="descricao">O diretor Alejandro Jodorowsky tentou criar uma adaptação para o cinema em 1975, mas acabou não saindo da pré-produção.</p>    
+            </div>
+        </div>
+        <div class="container">
+            <p class="resumo">Outras produções confirmadas são um próximo filme dirigido por Dennis Vilenuve 
+                continuando a história em “O Messias de Duna” e a 2º temporada de Duna a profecia</p>        
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Feita por Kevin Silva Estrela na São Paulo Tech School - SPTech (2025)</p>
+    </div>
+</body>
 </html>
 
 <script>
     var n = 1;
     
     function carrossel() {
-        livro.innerHTML = `<img src="../assets/livro ${n}.jpg" alt="">`
+        livro.innerHTML = `<img src="./assets/livro ${n}.jpg" alt="">`
         
         if (n == 1) {
             livro.innerHTML += `<p>Duna (1965): Livro 1</p>`
@@ -211,8 +308,6 @@
         carrossel()
     }
 
-    
-    
     function diminuir() {
         n--
         if(n < 1) {
@@ -220,6 +315,5 @@
         }
         carrossel()
     }
-    
 
 </script>
