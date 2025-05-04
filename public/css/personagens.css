@@ -1,0 +1,217 @@
+.personagens {
+    padding-top: 40px;
+}
+
+/*Personagem 1*/
+
+.personagens .paul_atreides {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.paul_atreides .quadro {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.paul_atreides img{
+    width: 273px;
+    height: 335px;
+}
+
+.paul_atreides p{
+    color: white;
+    font-family: sans-serif;
+}
+
+.paul_atreides .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.paul_atreides .texto img {
+    display: flex;
+    align-self: flex-end;
+    padding-top: 30px;
+    padding-right: 70px;
+    width: 130px;
+    height: 120px;
+}
+
+/*Personagem 2*/
+
+.personagens .jessica_atreides {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 100px;
+}
+
+.jessica_atreides .quadro {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.jessica_atreides img{
+    width: 273px;
+    height: 335px;
+}
+
+.jessica_atreides p{
+    color: white;
+    font-family: sans-serif;
+}
+
+.jessica_atreides .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.jessica_atreides .texto img {
+    display: flex;
+    align-self: flex-start;
+    padding-top: 30px;
+    padding-left: 70px;
+    width: 130px;
+    height: 120px;
+}
+
+/*Personagem 3*/
+
+.personagens .leto_atreides {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 100px;
+}
+
+.leto_atreides .quadro {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.leto_atreides img{
+    width: 273px;
+    height: 335px;
+}
+
+.leto_atreides p{
+    color: white;
+    font-family: sans-serif;
+}
+
+.leto_atreides .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.leto_atreides .texto img {
+    display: flex;
+    align-self: flex-end;
+    padding-top: 30px;
+    padding-right: 70px;
+    width: 130px;
+    height: 120px;
+}
+
+/*Personagem 4*/
+
+.personagens .vladimir {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 100px;
+}
+
+.vladimir .quadro {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.vladimir img{
+    width: 273px;
+    height: 335px;
+}
+
+.vladimir p{
+    color: white;
+    font-family: sans-serif;
+}
+
+.vladimir .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.vladimir .texto img {
+    display: flex;
+    align-self: flex-start;
+    padding-top: 20px;
+    padding-left: 40px;
+    width: 230px;
+    height: 230px;
+}
+
+/*Personagem 5*/
+
+.personagens .feyd-rautha {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 100px;
+}
+
+.feyd-rautha .quadro {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.feyd-rautha img{
+    width: 273px;
+    height: 335px;
+}
+
+.feyd-rautha p{
+    color: white;
+    font-family: sans-serif;
+}
+
+.feyd-rautha .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.feyd-rautha .texto img {
+    display: flex;
+    align-self: flex-end;
+    padding-top: 20px;
+    padding-right: 40px;
+    width: 230px;
+    height: 230px;
+}

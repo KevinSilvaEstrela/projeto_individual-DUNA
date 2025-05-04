@@ -1,0 +1,17 @@
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.formulario a {
+    color: var(--douradoClaro);
+}
+
+input {
+    width: 60%;
+    height: 37px;
+}
+
+button {
+    width: 40%;
+    height: 37px;
+}
