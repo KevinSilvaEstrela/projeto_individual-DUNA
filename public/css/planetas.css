@@ -21,8 +21,8 @@
 }
 
 .planetas p{
-    color: white;
-    font-family: sans-serif;
+    color: var(--douradoClaro);
+    font-family: "Dune Rise";
 }
 
 .planeta2 {
