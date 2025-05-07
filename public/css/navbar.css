@@ -9,7 +9,7 @@
     opacity: 80%;
 }
 
-.header .logo img{
+.header .logo img {
     width: 333px;
     height: 41px;
     padding-left: 150px;
@@ -29,6 +29,20 @@
 
 li {
     list-style-type: none;
+}
+
+/*li:hover {
+    transition: 0.6s;
+    cursor: pointer;
+    background-color: var(--dourado);
+    border: 3px solid white;
+    border-radius: 35px;
+}*/
+
+a:hover {
+    transition: 0.6s;
+    font-size: 15px;
+    color: white;
 }
 
 a {
