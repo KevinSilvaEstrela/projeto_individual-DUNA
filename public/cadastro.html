@@ -1,61 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/cadastro.css">
-    <script src="./js/sessao.js"></script>
-    <title>Cadastro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/cadastro.css">
+  <script src="./js/sessao.js"></script>
+  <title>Cadastro</title>
 </head>
+
 <body>
-    <div class="header">
-        <div class="logo">
-            <a href="index.html"><img src="assets/logo.png" alt=""></a>
-        </div>
-
-        <div class="container">
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="#sobre">Sobre</a>
-                </li>
-                <li>
-                    <a href="#livros">Livros</a>
-                </li>
-                <li>
-                    <a href="#personagens">Personagens</a>
-                </li>
-                <li>
-                    <a href="#">Planetas</a>
-                </li>
-                <li>
-                    <a href="login.html">Entrar</a>
-                </li>
-            </ul>
-        </div>
+  <div class="header">
+    <div class="logo">
+      <a href="index.html"><img src="assets/logo.png" alt=""></a>
     </div>
 
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
-      </div>
+    <div class="container">
+      <ul class="navbar">
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="#sobre">Sobre</a>
+        </li>
+        <li>
+          <a href="#livros">Livros</a>
+        </li>
+        <li>
+          <a href="#personagens">Personagens</a>
+        </li>
+        <li>
+          <a href="#">Planetas</a>
+        </li>
+        <li>
+          <a href="login.html">Entrar</a>
+        </li>
+      </ul>
     </div>
+  </div>
 
-    <div class="formulario">
-        <h2>Cadastro</h2>
-        <input id="nome_usuario" type="text" placeholder="Nome de Usuário">
-        <input id="email_usuario" type="text" placeholder="E-mail">
-        <input id="senha_usuario" type="password" placeholder="Senha">
-        <input id="confirmar_senha" type="password" placeholder="Confime a Senha">
-        <br>
-        <button onclick="cadastrar()"">Cadastrar</button>
-        <a href="login.html">Voltar</a>
+  <div class="alerta_erro">
+    <div class="card_erro" id="cardErro">
+      <span id="mensagem_erro"></span>
     </div>
+  </div>
+
+  <div class="formulario">
+    <h2>Cadastro</h2>
+    <div>
+      <span>Nome de Usuario:</span>
+      <input id="nome_usuario" type="text" placeholder="Jorge Amado">
+      <span>E-mail:</span>
+      <input id="email_usuario" type="text" placeholder="exemplo@exemplo.com">
+      <span>Senha:</span>
+      <input id="senha_usuario" type="password">
+      <span>Confime a Senha:</span>
+      <input id="confirmar_senha" type="password" >
+    </div>
+    <br>
+    <button onclick="cadastrar()"">Cadastrar</button>
+        <a href=" login.html">Voltar</a>
+  </div>
 </body>
+
 </html>
 
 <script>
@@ -128,7 +137,7 @@
     return false;
   }
 
-  
+
   function sumirMensagem() {
     cardErro.style.display = "none";
   }

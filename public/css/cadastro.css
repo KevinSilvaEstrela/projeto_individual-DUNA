@@ -12,22 +12,30 @@ body {
 }
 
 .formulario {
-    gap: 40px;
-    font-size: 25px;
-    background-color: rgba(0, 0, 0, 0.1);
+    font-size: 15px;
+    background-color: rgba(0, 0, 0, 0.4);
     border-radius: 35px;
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    top:0;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
     width: 571px;
-    height: 616px;
+    height: 450px;
+}
+
+.formulario div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
 }
 
 .formulario a {
@@ -36,34 +44,53 @@ body {
     padding-bottom: 10px;
 }
 
-.formulario h2{
+.formulario h2 {
     padding: 0;
 }
 
 
 input {
     width: 60%;
-    height: 200px;
+    height: 37px;
     color: white;
     text-align: center;
-    font-style: bold;
-    background-color: #414040;
+    background-color: #050505;
     border-radius: 35px;
     border: none;
 }
 
 button {
-    width: 40%;
-    height: 200px;
+    width: 61%;
+    height: 37px;
+    cursor: pointer;
+    margin-top: 25px;
     color: white;
     background-color: var(--cinza);
     border-radius: 35px;
     border-style: double;
 }
 
-#nome_usuario, #email_usuario {
+button:hover {
+    transition: 0.6s;
+    width: 61%;
+    height: 37px;
+    cursor: pointer;
+    background-color: var(--dourado);
+    color: #fff;
+    border: 1px solid black;
+}
+
+#nome_usuario,
+#email_usuario {
     background-image: url(../assets/atreides\ icon.png);
-    background-size: 40px;
+    background-size: 33px;
     background-repeat: no-repeat;
     background-position: 10px;
+}
+
+.formulario span {
+    font-size: 12px;
+    color: whitesmoke;
+    align-self: flex-start;
+    padding-left: 110px;
 }
