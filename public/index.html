@@ -227,43 +227,43 @@
         <div class="container">
             <div>
                 <p>Duna de Jodorowsky (1975)</p>
-                <img src="./assets/duna-jodorowsky.png" alt="">
+                <img id="duna_jodorowsky" onclick="trocar(teste)" src="./assets/duna-jodorowsky.png" alt="">
                 <p class="descricao">O diretor Alejandro Jodorowsky tentou criar uma adaptação para o cinema em 1975, mas acabou não saindo da pré-produção.</p>    
             </div>
             <div>
                 <p>Duna (1984)</p>
-                <img src="./assets/duna-1984.png" alt="">
+                <img id="duna_1984" src="./assets/duna-1984.png" alt="">
                 <p class="descricao">O diretor Alejandro Jodorowsky tentou criar uma adaptação para o cinema em 1975, mas acabou não saindo da pré-produção.</p>    
             </div>
         </div>
         <div class="container">
             <div>
                 <p>Duna - Série (2000)</p>
-                <img src="./assets/duna-2000.png" alt="">
+                <img id="duna_2000" src="./assets/duna-2000.png" alt="">
                 <p class="descricao">O diretor Alejandro Jodorowsky tentou criar uma adaptação para o cinema em 1975, mas acabou não saindo da pré-produção.</p>    
             </div>
             <div>
                 <p>Os Filhos de Duna - Série (2003)</p>
-                <img src="./assets/duna-2003.png" alt="">
+                <img id="duna_2003" src="./assets/duna-2003.png" alt="">
                 <p class="descricao">O diretor Alejandro Jodorowsky tentou criar uma adaptação para o cinema em 1975, mas acabou não saindo da pré-produção.</p>    
             </div>
         </div>
         <div class="container">
             <div>
                 <p>Duna (2021)</p>
-                <img src="./assets/duna-2021.png" alt="">
+                <img id="duna_2021" src="./assets/duna-2021.png" alt="">
                 <p class="descricao">O diretor Alejandro Jodorowsky tentou criar uma adaptação para o cinema em 1975, mas acabou não saindo da pré-produção.</p>    
             </div>
             <div>
                 <p>Duna - parte 2 (2024)</p>
-                <img src="./assets/duna-2024.png" alt="">
+                <img id="duna_2024" src="./assets/duna-2024.png" alt="">
                 <p class="descricao">O diretor Alejandro Jodorowsky tentou criar uma adaptação para o cinema em 1975, mas acabou não saindo da pré-produção.</p>    
             </div>
         </div>
         <div class="container">
             <div>
                 <p>Duna: A Profecia (2024)</p>
-                <img src="./assets/duna-profecia.png" alt="">
+                <img id="duna_profecia" src="./assets/duna-profecia.png" alt="">
                 <p class="descricao">O diretor Alejandro Jodorowsky tentou criar uma adaptação para o cinema em 1975, mas acabou não saindo da pré-produção.</p>    
             </div>
         </div>
@@ -300,6 +300,12 @@
         }
     }
 
+
+
+    function trocar(nomeDiv) {
+        nomeDiv.src = './assets/planeta1.png'
+    }
+
     function aumentar() {
         n++    
         if (n > 6) {
@@ -316,4 +322,59 @@
         carrossel()
     }
 
+    document.getElementById('duna_jodorowsky').addEventListener("mouseover", () => {
+        duna_jodorowsky.src = './assets/duna-jodorowsky.png';
+    })
+
+    document.getElementById('duna_jodorowsky').addEventListener("mouseout", () => {
+        duna_jodorowsky.src = './assets/duna-jodorowsky.png';
+    })
+
+    document.getElementById('duna_1984').addEventListener("mouseover", () => {
+        duna_1984.src = './assets/planeta1.png';
+    })
+
+    document.getElementById('duna_1984').addEventListener("mouseout", () => {
+        duna_1984.src = './assets/duna-1984.png';
+    })
+
+    document.getElementById('duna_2000').addEventListener("mouseover", () => {
+        duna_2000.src = './assets/planeta1.png';
+    })
+
+    document.getElementById('duna_2000').addEventListener("mouseout", () => {
+        duna_2000.src = './assets/duna-2000.png';
+    })
+
+    document.getElementById('duna_2003').addEventListener("mouseover", () => {
+        duna_2003.src = './assets/planeta1.png';
+    })
+
+    document.getElementById('duna_2003').addEventListener("mouseout", () => {
+        duna_2003.src = './assets/duna-2003.png';
+    })
+
+    document.getElementById('duna_2021').addEventListener("mouseover", () => {
+        duna_2021.src = './assets/planeta1.png';
+    })
+
+    document.getElementById('duna_2021').addEventListener("mouseout", () => {
+        duna_2021.src = './assets/duna-2021.png';
+    })
+
+    document.getElementById('duna_2024').addEventListener("mouseover", () => {
+        duna_2024.src = './assets/planeta1.png';
+    })
+
+    document.getElementById('duna_2024').addEventListener("mouseout", () => {
+        duna_2024.src = './assets/duna-2024.png';
+    })
+
+    document.getElementById('duna_profecia').addEventListener("mouseover", () => {
+        duna_profecia.src = './assets/planeta1.png';
+    })
+
+    document.getElementById('duna_profecia').addEventListener("mouseout", () => {
+        duna_profecia.src = './assets/duna-profecia.png';
+    })
 </script>
