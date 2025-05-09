@@ -42,3 +42,16 @@ h2 {
     padding-left: 40px;
     font-size: 35px;
 }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home h1 {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1.6s forwards;
+}
