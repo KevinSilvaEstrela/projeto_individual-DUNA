@@ -3,10 +3,16 @@
     padding-bottom: 100px;
 }
 
-.adaptacoes p{
+.adaptacoes .titulo{
+    color: var(--douradoClaro);
+    font-family: Dune Rise;
+    text-align: center;
+}
+
+.adaptacoes .descricao{
     color: white;
     font-family: sans-serif;
-    text-align: center;
+    text-align: left;
 }
 
 .adaptacoes .container {
@@ -34,4 +40,6 @@
     padding-top: 50px;
     max-width: 800px;
     font-size: 25px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

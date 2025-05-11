@@ -140,6 +140,53 @@
 }
 
 /*Personagem 4*/
+.personagens .chani {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 100px;
+}
+
+.chani .quadro {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.chani img {
+    width: 273px;
+    height: 335px;
+    border: 3px solid var(--dourado);
+    border-radius: 35px;
+}
+
+.chani p {
+    color: white;
+    font-family: sans-serif;
+}
+
+.chani .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.chani .texto img {
+    display: flex;
+    align-self: flex-start;
+    padding-top: 30px;
+    padding-left: 70px;
+    width: 130px;
+    height: 120px;
+    border: none;
+}
+
+
+
+/*Personagem 5*/
 
 .personagens .vladimir {
     display: flex;
@@ -177,15 +224,15 @@
 
 .vladimir .texto img {
     display: flex;
-    align-self: flex-start;
+    align-self: flex-end;
     padding-top: 20px;
     padding-left: 40px;
-    width: 230px;
+    width: 270px;
     height: 230px;
     border: none;
 }
 
-/*Personagem 5*/
+/*Personagem 6*/
 
 .personagens .feyd-rautha {
     display: flex;
@@ -223,10 +270,10 @@
 
 .feyd-rautha .texto img {
     display: flex;
-    align-self: flex-end;
+    align-self: flex-start;
     padding-top: 20px;
     padding-right: 40px;
-    width: 230px;
+    width: 270px;
     height: 230px;
     border: none;
 }

@@ -38,4 +38,7 @@ h3 {
 .sobre .quadro img{
     width: 234.45px;
     height: 310px;
+    border: 3px solid var(--dourado);
+    border-radius: 35px;
+    filter: brightness(0.7);    
 }
