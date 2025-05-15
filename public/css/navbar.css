@@ -31,22 +31,14 @@ li {
     list-style-type: none;
 }
 
-/*li:hover {
-    transition: 0.6s;
-    cursor: pointer;
-    background-color: var(--dourado);
-    border: 3px solid white;
-    border-radius: 35px;
-}*/
-
-a:hover {
-    transition: 0.7s;
-    font-size: 15px;
-    color: white;
-}
-
 a {
+    transition: font-size 0.7s;
     color: #EFA608;
     text-decoration: none;
     cursor: pointer;
+}
+
+a:hover {
+    font-size: 15px;
+    color: white;
 }

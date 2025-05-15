@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/adaptacoes.css">
     <link rel="shortcut icon" href="./assets/dune-ico.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/footer.css">
+
+    <script src="js/livros.js"></script>
     <title>Home</title>
 </head>
 
@@ -85,8 +87,7 @@
         <p>A franquia é composta por mais de 13 livros escritos ao longo das décadas, e os seus principais são:</p>
 
         <div class="container">
-            <button class="botao-esquerdo" onclick="diminuir()">
-                << /button>
+            <button class="botao-esquerdo" onclick="diminuir()"><</button>
 
                     <div class="livro" id="livro">
                         <img src="assets/livro 1.jpg" alt="">
@@ -231,11 +232,16 @@
                 <p>Arrakis</p>
             </div>
 
-            <div class="modal" id="modal">
+            <div class="modal_arrakis" id="modal_arrakis">
                 <div class="modal-container">
-                    <span class="close">&times;</span>
+                    <span class="close_arrakis">&times;</span>
                     <p>Arrakis</p>
-                    <p>O planeta hhhh Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem amet vitae officia eaque? Maiores, minima quos, totam alias quo fugiat aliquam placeat facere, nesciunt cumque exercitationem sint corrupti temporibus neque.</p>
+                    <p>
+                        O planeta hhhh Lorem ipsum, dolor sit amet consectetur adipisicing 
+                        elit. Dolorem amet vitae officia eaque? Maiores, minima quos, totam 
+                        alias quo fugiat aliquam placeat facere, nesciunt cumque exercitationem 
+                        sint corrupti temporibus neque.
+                    </p>
                 </div>
             </div>
 
@@ -244,10 +250,37 @@
                 <p>Caladan</p>
             </div>
 
+            <div class="modal_caladan" id="modal_caladan">
+                <div class="modal-container">
+                    <span class="close_caladan">&times;</span>
+                    <p>Caladan</p>
+                    <p>
+                        O planeta hhhh Lorem ipsum, dolor sit amet consectetur adipisicing 
+                        elit. Dolorem amet vitae officia eaque? Maiores, minima quos, totam 
+                        alias quo fugiat aliquam placeat facere, nesciunt cumque exercitationem 
+                        sint corrupti temporibus neque.
+                    </p>
+                </div>
+            </div>
+
             <div class="planeta3">
                 <img id="gieid" class="gieid" src="./assets/planeta3.png" alt="">
                 <p>Gieid Prime</p>
             </div>
+
+            <div class="modal_gieid" id="modal_gieid">
+                <div class="modal-container">
+                    <span class="close_gieid">&times;</span>
+                    <p>Gieid Prime</p>
+                    <p>
+                        O planeta hhhh Lorem ipsum, dolor sit amet consectetur adipisicing 
+                        elit. Dolorem amet vitae officia eaque? Maiores, minima quos, totam 
+                        alias quo fugiat aliquam placeat facere, nesciunt cumque exercitationem 
+                        sint corrupti temporibus neque.
+                    </p>
+                </div>
+            </div>
+
         </div>
         <div class="container">
             <div class="planeta4">
@@ -255,15 +288,55 @@
                 <p>Chapterhouse</p>
             </div>
 
+            <div class="modal_chapterhouse" id="modal_chapterhouse">
+                <div class="modal-container">
+                    <span class="close_chapterhouse">&times;</span>
+                    <p>Chapterhouse</p>
+                    <p>
+                        O planeta hhhh Lorem ipsum, dolor sit amet consectetur adipisicing 
+                        elit. Dolorem amet vitae officia eaque? Maiores, minima quos, totam 
+                        alias quo fugiat aliquam placeat facere, nesciunt cumque exercitationem 
+                        sint corrupti temporibus neque.
+                    </p>
+                </div>
+            </div>
+
             <div class="planeta5">
                 <img id="kaitain" class="kaitain" src="./assets/planeta5.png" alt="">
                 <p>Kaitain</p>
+            </div>
+
+            <div class="modal_kaitain" id="modal_kaitain">
+                <div class="modal-container">
+                    <span class="close_kaitain">&times;</span>
+                    <p>Kaitain</p>
+                    <p>
+                        O planeta hhhh Lorem ipsum, dolor sit amet consectetur adipisicing 
+                        elit. Dolorem amet vitae officia eaque? Maiores, minima quos, totam 
+                        alias quo fugiat aliquam placeat facere, nesciunt cumque exercitationem 
+                        sint corrupti temporibus neque.
+                    </p>
+                </div>
             </div>
 
             <div class="planeta6">
                 <img id="salusa" class="salusa" src="./assets/planeta6.png" alt="">
                 <p>Salusa Secundus</p>
             </div>
+
+            <div class="modal_salusa" id="modal_salusa">
+                <div class="modal-container">
+                    <span class="close_salusa">&times;</span>
+                    <p>Salusa Secundus</p>
+                    <p>
+                        O planeta hhhh Lorem ipsum, dolor sit amet consectetur adipisicing 
+                        elit. Dolorem amet vitae officia eaque? Maiores, minima quos, totam 
+                        alias quo fugiat aliquam placeat facere, nesciunt cumque exercitationem 
+                        sint corrupti temporibus neque.
+                    </p>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -373,100 +446,60 @@
 </html>
 
 <script>
-    var n = 1;
 
-    function carrossel() {
-        livro.innerHTML = `<img src="./assets/livro ${n}.jpg" alt="">`
-
-        if (n == 1) {
-            livro.innerHTML += `<p>Duna (1965): Livro 1</p>`
-        } else if (n == 2) {
-            livro.innerHTML += `<p>O Messias de Duna (1969): Livro 2</p>`
-        } else if (n == 3) {
-            livro.innerHTML += `<p>Os Filhos de Duna (1976): Livro 3</p>`
-        } else if (n == 4) {
-            livro.innerHTML += `<p>O Imperador Deus  de Duna (1976): Livro 4</p>`
-        } else if (n == 5) {
-            livro.innerHTML += `<p>Os Hereges de Duna (1976): Livro 5</p>`
-        } else if (n == 6) {
-            livro.innerHTML += `<p>As Herdeiras de Duna (1976): Livro 6</p>`
-        }
-    }
-
-
-
-    function trocar(nomeDiv) {
-        nomeDiv.src = './assets/planeta1.png'
-    }
-
-    function aumentar() {
-        n++
-        if (n > 6) {
-            n = 1
-        }
-        carrossel()
-    }
-
-    function diminuir() {
-        n--
-        if (n < 1) {
-            n = 6
-        }
-        carrossel()
-    }
-
+    //Adaptações
     document.getElementById('duna_jodorowsky').addEventListener("mouseover", () => {
         duna_jodorowsky.src = './assets/duna-jodorowsky.png';
     })
-
+    
     document.getElementById('duna_jodorowsky').addEventListener("mouseout", () => {
         duna_jodorowsky.src = './assets/duna-jodorowsky.png';
     })
-
+    
     document.getElementById('duna_1984').addEventListener("mouseover", () => {
         duna_1984.src = './assets/planeta1.png';
     })
-
+    
     document.getElementById('duna_1984').addEventListener("mouseout", () => {
         duna_1984.src = './assets/duna-1984.png';
     })
-
+    
     document.getElementById('duna_2000').addEventListener("mouseover", () => {
         duna_2000.src = './assets/planeta1.png';
     })
-
+    
     document.getElementById('duna_2000').addEventListener("mouseout", () => {
         duna_2000.src = './assets/duna-2000.png';
     })
-
+    
     document.getElementById('duna_2003').addEventListener("mouseover", () => {
         duna_2003.src = './assets/planeta1.png';
     })
-
+    
     document.getElementById('duna_2003').addEventListener("mouseout", () => {
         duna_2003.src = './assets/duna-2003.png';
     })
-
+    
     document.getElementById('duna_2021').addEventListener("mouseover", () => {
         duna_2021.src = './assets/2021.gif';
     })
-
+    
     document.getElementById('duna_2021').addEventListener("mouseout", () => {
         duna_2021.src = './assets/duna-2021.png';
     })
-
+    
     document.getElementById('duna_2024').addEventListener("mouseover", () => {
         duna_2024.src = './assets/2024.gif';
     })
-
+    
     document.getElementById('duna_2024').addEventListener("mouseout", () => {
         duna_2024.src = './assets/duna-2024.png';
     })
-
+    
     document.getElementById('duna_profecia').addEventListener("mouseover", () => {
         duna_profecia.src = './assets/planeta1.png';
     })
-
+    
     document.getElementById('duna_profecia').addEventListener("mouseout", () => {
         duna_profecia.src = './assets/duna-profecia.png';
     })
@@ -474,24 +507,101 @@
 
 
 
-
-    // Função para o Modal
-    var modal = document.getElementById("modal");
-
+    // Função para o Modal dos planetas
+    var modal_arrakis = document.getElementById("modal_arrakis");
+    var modal_caladan = document.getElementById("modal_caladan");
+    var modal_gieid = document.getElementById("modal_gieid");
+    var modal_chapterhouse = document.getElementById("modal_chapterhouse");
+    var modal_kaitain = document.getElementById("modal_kaitain");
+    var modal_salusa = document.getElementById("modal_salusa");
 
     document.getElementById("arrakis").addEventListener("click", () => {
-        modal.style.display = "block";
+        modal_arrakis.style.display = "block";
     })
 
-    var span = document.getElementsByClassName("close")[0];
+    document.getElementById("caladan").addEventListener("click", () => {
+        modal_caladan.style.display = "block";
+    })
 
-    span.onclick = function () {
-        modal.style.display = "none";
+    document.getElementById("gieid").addEventListener("click", () => {
+        modal_gieid.style.display = "block";
+    })
+
+    document.getElementById("chapterhouse").addEventListener("click", () => {
+        modal_chapterhouse.style.display = "block";
+    })
+
+    document.getElementById("kaitain").addEventListener("click", () => {
+        modal_kaitain.style.display = "block";
+    })
+
+    document.getElementById("salusa").addEventListener("click", () => {
+        modal_salusa.style.display = "block";
+    })
+
+    //Fechar o modal clicando no X
+    var span_arrakis = document.getElementsByClassName("close_arrakis")[0];
+    var span_caladan = document.getElementsByClassName("close_caladan")[0];
+    var span_gieid = document.getElementsByClassName("close_gieid")[0];
+    var span_chapterhouse = document.getElementsByClassName("close_chapterhouse")[0];
+    var span_kaitain = document.getElementsByClassName("close_kaitain")[0];
+    var span_salusa = document.getElementsByClassName("close_salusa")[0];
+
+    span_arrakis.onclick = function () {
+        modal_arrakis.style.display = "none";
     }
 
+    span_caladan.onclick = function () {
+        modal_caladan.style.display = "none";
+    }
+
+    span_gieid.onclick = function () {
+        modal_gieid.style.display = "none";
+    }
+
+    span_chapterhouse.onclick = function () {
+        modal_chapterhouse.style.display = "none";
+    }
+
+    span_kaitain.onclick = function () {
+        modal_kaitain.style.display = "none";
+    }
+
+    span_salusa.onclick = function () {
+        modal_salusa.style.display = "none";
+    }
+
+    //Retira o modal quando parte parte fora dele é clicada
     window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        if (event.target == modal_arrakis) {
+            modal_arrakis.style.display = "none";
         }
-    } 
+    }
+    
+    window.onclick = function (event) {
+        if (event.target == modal_caladan) {
+            modal_caladan.style.display = "none";
+        }
+    }
+    window.onclick = function (event) {
+        if (event.target == modal_gieid) {
+            modal_gieid.style.display = "none";
+        }
+    }
+    window.onclick = function (event) {
+        if (event.target == modal_chapterhouse) {
+            modal_chapterhouse.style.display = "none";
+        }
+    }
+    window.onclick = function (event) {
+        if (event.target == modal_kaitain) {
+            modal_kaitain.style.display = "none";
+        }
+    }
+    window.onclick = function (event) {
+        if (event.target == modal_salusa) {
+            modal_salusa.style.display = "none";
+        }
+    }
+
 </script>

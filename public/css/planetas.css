@@ -43,7 +43,12 @@
 }
 
 
-.modal {
+.modal_arrakis,
+.modal_caladan,
+.modal_gieid,
+.modal_chapterhouse,
+.modal_kaitain,
+.modal_salusa {
     display: none;
     position: fixed;
     z-index: 1;
@@ -64,15 +69,31 @@
     height: 40%;
 }
 
-.close {
-    color: gray;
+.close_arrakis,
+.close_caladan,
+.close_gieid,
+.close_chapterhouse,
+.close_kaitain,
+.close_salusa {
+    color: black;
     float: right;
     font-size: 30px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close_arrakis:hover,
+.close_caladan:hover,
+.close_gieid:hover,
+.close_chapterhouse:hover,
+.close_kaitain:hover,
+.close_salusa:hover,
+
+.close_arrakis:focus,
+.close_caladan:focus,
+.close_gieid:focus,
+.close_chapterhouse:focus,
+.close_kaitain:focus,
+.close_salusa:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
