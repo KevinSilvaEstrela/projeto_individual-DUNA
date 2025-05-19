@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #020300;
+  color: white;
+}
+
+.container {
+  width: 80vmin;
+  height: 80vmin;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+  background: #293447;
+}
+
+.container h1{
+  text-align: center;
+}
+
+.pontuacao-jogo {
+  /*color: #B8C6DC;*/
+  font-weight: 500;
+  font-size: 20px;
+  padding: 20px 27px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.jogo {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  background-image: url('top-down-desert.png');
+  background-size: cover;
+  grid-template: repeat(30, 1fr) / repeat(30, 1fr);
+}
+
+.jogo .comida {
+  background: #FF003D;
+}
+
+.jogo .cabeca {
+  background: #f37126;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 90vmin;
+    height: 115vmin;
+  }
+  .pontuacao-jogo {
+    font-size: 1rem;
+    padding: 15px 27px;
+  }
+}
