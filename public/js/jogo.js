@@ -12,6 +12,9 @@ var velocidadeX = 0, velocidadeY = 0;
 var setIntervalId;
 var pontos = 0;
 
+var audio = document.querySelector(".audio");
+var pode_tocar = true;
+
 var recorde = localStorage.getItem("recorde") || 0;
 recorde_elemento.innerText = `Recorde: ${recorde}`;
 
@@ -23,26 +26,28 @@ var atualizar_posicao_comida = () => {
 var encerrar_partida = () => {
     clearInterval(setIntervalId);
     alert("Fim de Jogo!");
+    pode_tocar = true;
     location.reload();
 }
 
 var mudar_direcao = e => {
-    if(e.key === "ArrowUp" && velocidadeY != 1) {
+    if(e.key === "w" || e.key === "ArrowUp" && velocidadeY != 1) {
         velocidadeX = 0;
         velocidadeY = -1;
-    } else if(e.key === "ArrowDown" && velocidadeY != -1) {
+    } else if(e.key === "s" || e.key === "ArrowDown" && velocidadeY != -1) {
         velocidadeX = 0;
         velocidadeY = 1;
-    } else if(e.key === "ArrowLeft" && velocidadeX != 1) {
+    } else if(e.key === "a" || e.key === "ArrowLeft" && velocidadeX != 1) {
         velocidadeX = -1;
         velocidadeY = 0;
-    } else if(e.key === "ArrowRight" && velocidadeX != -1) {
+    } else if(e.key === "d" || e.key === "ArrowRight" && velocidadeX != -1) {
         velocidadeX = 1;
         velocidadeY = 0;
     }
 }
 
 var iniciarJogo = () => {
+    
     if(finalizar_jogo) {
         return encerrar_partida();
     }
@@ -56,6 +61,10 @@ var iniciarJogo = () => {
         
         if (pontos >= recorde) {
             recorde = pontos
+            if (pode_tocar) {
+                audio.play();
+            }
+            pode_tocar = false;
         }
 
         localStorage.setItem("recorde", recorde);

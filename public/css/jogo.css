@@ -38,7 +38,7 @@ body {
   height: 100%;
   width: 100%;
   display: grid;
-  background-image: url('top-down-desert.png');
+  background-image: url('../jogo-cobra/top-down-desert.png');
   background-size: cover;
   grid-template: repeat(30, 1fr) / repeat(30, 1fr);
 }
