@@ -25,8 +25,17 @@ CREATE TABLE usuario (
 );
 
 CREATE TABLE jogo (
-	id id INT PRIMARY KEY AUTO_INCREMENT,
+	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
+);
+
+CREATE TABLE pontuacao (
+	id id INT PRIMARY KEY AUTO_INCREMENT,
+	recorde INT NOT NULL,
+	fk_usuario INT,
+	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+	fk_jogo INT,
+	FOREIGN KEY (fk_jogo) REFERENCES jogo(id)
 );
 
 CREATE TABLE aviso (

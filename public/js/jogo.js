@@ -27,38 +27,39 @@ var encerrar_partida = () => {
     clearInterval(setIntervalId);
     alert("Fim de Jogo!");
     pode_tocar = true;
+    enviarPontuacao();
     location.reload();
 }
 
 var mudar_direcao = e => {
-    if(e.key === "w" || e.key === "ArrowUp" && velocidadeY != 1) {
+    if (e.key === "w" || e.key === "ArrowUp" && velocidadeY != 1) {
         velocidadeX = 0;
         velocidadeY = -1;
-    } else if(e.key === "s" || e.key === "ArrowDown" && velocidadeY != -1) {
+    } else if (e.key === "s" || e.key === "ArrowDown" && velocidadeY != -1) {
         velocidadeX = 0;
         velocidadeY = 1;
-    } else if(e.key === "a" || e.key === "ArrowLeft" && velocidadeX != 1) {
+    } else if (e.key === "a" || e.key === "ArrowLeft" && velocidadeX != 1) {
         velocidadeX = -1;
         velocidadeY = 0;
-    } else if(e.key === "d" || e.key === "ArrowRight" && velocidadeX != -1) {
+    } else if (e.key === "d" || e.key === "ArrowRight" && velocidadeX != -1) {
         velocidadeX = 1;
         velocidadeY = 0;
     }
 }
 
 var iniciarJogo = () => {
-    
-    if(finalizar_jogo) {
+
+    if (finalizar_jogo) {
         return encerrar_partida();
     }
-        
+
     var html = `<div class="comida" style="grid-area: ${comidaY} / ${comidaX}"></div>`;
 
-    if(cobraX === comidaX && cobraY === comidaY) {
+    if (cobraX === comidaX && cobraY === comidaY) {
         atualizar_posicao_comida();
         cobra_corpo.push([comidaY, comidaX]);
         pontos++;
-        
+
         if (pontos >= recorde) {
             recorde = pontos
             if (pode_tocar) {
@@ -71,18 +72,18 @@ var iniciarJogo = () => {
         pontos_elemento.innerText = `Pontos: ${pontos}`;
         recorde_elemento.innerText = `Recorde: ${recorde}`;
     }
- 
+
     cobraX += velocidadeX;
     cobraY += velocidadeY;
-    
-   
+
+
     for (var i = cobra_corpo.length - 1; i > 0; i--) {
         cobra_corpo[i] = cobra_corpo[i - 1];
     }
 
     cobra_corpo[0] = [cobraX, cobraY];
 
-    if(cobraX <= 0 || cobraX > 30 || cobraY <= 0 || cobraY > 30) {
+    if (cobraX <= 0 || cobraX > 30 || cobraY <= 0 || cobraY > 30) {
         return finalizar_jogo = true;
     }
 
@@ -99,3 +100,30 @@ var iniciarJogo = () => {
 atualizar_posicao_comida();
 setIntervalId = setInterval(iniciarJogo, 100);
 document.addEventListener("keyup", mudar_direcao);
+
+function enviarPontuacao() {
+    var recordeVar = recorde;
+    var id_usuarioVar = sessionStorage.ID_USUARIO;
+    var id_jogoVar = 1;
+
+    fetch("http://localhost:3333/snakeGameRoutes/enviarPontuacao", {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            recordeServer: recordeVar,
+            id_usuarioServer: id_usuarioVar,
+	    id_jogoServer: id_jogoVar
+        })
+    })
+
+.then(res => {
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+    return res.json();
+})
+.then(data => console.log("Pontuação enviada:", data))
+.catch(err => console.error("Erro ao enviar pontuação:", err));
+
+
+}
