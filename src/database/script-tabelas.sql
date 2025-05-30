@@ -10,32 +10,25 @@ CREATE DATABASE duna;
 
 USE duna;
 
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
-);
-
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
+	id_usuario INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
 	email VARCHAR(50),
 	senha VARCHAR(50)
 );
 
 CREATE TABLE jogo (
-	id INT PRIMARY KEY AUTO_INCREMENT,
+	id_jogo INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
 );
 
 CREATE TABLE pontuacao (
-	id id INT PRIMARY KEY AUTO_INCREMENT,
+	id_pontuacao INT PRIMARY KEY AUTO_INCREMENT,
 	recorde INT NOT NULL,
 	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+	FOREIGN KEY (fk_usuario) REFERENCES usuario(id_usuario),
 	fk_jogo INT,
-	FOREIGN KEY (fk_jogo) REFERENCES jogo(id)
+	FOREIGN KEY (fk_jogo) REFERENCES jogo(id_jogo)
 );
 
 CREATE TABLE aviso (
@@ -44,14 +37,6 @@ CREATE TABLE aviso (
 	descricao VARCHAR(150),
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
-);
-
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
 
 /* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */

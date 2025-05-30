@@ -1,3 +1,7 @@
+body {
+  background-color: #020300;
+}
+
 .tela_inicial {
   display: flex;
   flex-direction: column;
@@ -6,6 +10,12 @@
   position: absolute;
   width: 100vmin;
   height: 80vmin;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 20px;
   background-image: url(../jogo-cobra/capa\ da\ tela.png);
   background-size: cover;
   font-family: "Dune Rise";

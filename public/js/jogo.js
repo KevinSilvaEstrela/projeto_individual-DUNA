@@ -104,17 +104,15 @@ document.addEventListener("keyup", mudar_direcao);
 function enviarPontuacao() {
     var recordeVar = recorde;
     var id_usuarioVar = sessionStorage.ID_USUARIO;
-    var id_jogoVar = 1;
 
-    fetch("http://localhost:3333/snakeGameRoutes/enviarPontuacao", {
+    fetch("http://localhost:3333/snakeGameRoutes/enviarPontuacao/" + id_usuarioVar, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
             recordeServer: recordeVar,
-            id_usuarioServer: id_usuarioVar,
-	    id_jogoServer: id_jogoVar
+	        id_jogoServer: 1
         })
     })
 

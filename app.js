@@ -37,6 +37,7 @@ app.use("/aquarios", aquariosRouter);
 app.use("/empresas", empresasRouter);
 app.use("/snakeGameRoutes", snakeGameRouter);
 
+console.log(PORTA_APP, HOST_APP)
 app.listen(PORTA_APP, function () {
     console.log(`
     ##   ##  ######   #####             ####       ##     ######     ##              ##  ##    ####    ######  
