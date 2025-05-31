@@ -1,21 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/tela_inicial_jogo.css">
-    <title>Shai Hulud's Game</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/tela_inicial_jogo.css">
+  <title>Shai Hulud's Game</title>
 </head>
+
+<style>
+  .placar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 100vmin;
+    height: 80vmin;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+    font-family: "Dune Rise";
+    color: white;
+  }
+
+  .placar .titulo {
+    color: #EFA608;
+  }
+
+  #recorde_usuarios {
+    list-style-type: none;
+    font-size: 20px;
+  }
+</style>
+
 <body>
-    <div class="tela_inicial" id="tela_inicial">
-      <div class="container-titulo">
-        <h1 class="titulo">Shai Hulud's Game</h1>
-      </div>
-      
-      <div class="container-botoes">
-        <button class="iniciar" onclick="location.href='jogo.html'">Iniciar</button>
-        <button class="placar">Placar</button>
-      </div>      
+  <div class="tela_inicial" id="tela_inicial">
+    <div class="container-titulo">
+      <h1 class="titulo">Shai Hulud's Game</h1>
+      <div onclick="location.href='http://localhost:3333/dashboard/dashboard.html'"><img class="sair"
+          src="exit_icon.png" alt=""></div>
     </div>
+
+    <div class="container-botoes">
+      <button class="iniciar" onclick="location.href='jogo.html'">Iniciar</button>
+      <button class="placar">Placar</button>
+    </div>
+  </div>
+
+  <div class="placar">
+    <h1 class="titulo">Placar</h1>
+
+    <div>
+      <ul id="recorde_usuarios">
+      </ul>
+    </div>
+
+  </div>
+
 </body>
+
 </html>
+
+<script>
+  const recorde_usuarios = document.getElementById('recorde_usuarios');
+
+  async function obterPlacarUsuarios() {
+    const resposta = await fetch("http://localhost:3333/dashboardRoutes/placarUsuarios");
+
+    if (resposta.ok) {
+      console.log('PlacarUsuarios funcionou!');
+      const dados = await resposta.json();
+      console.log(dados)
+
+      dados.forEach(function (item) {
+        const data = new Date(item.data);
+        const dataFormatada = data.toLocaleDateString('pt-BR');
+        const horaFormatada = data.toLocaleTimeString('pt-BR', {
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+
+        recorde_usuarios.innerHTML += `<li>Nome: ${item.nome}  |  Recorde: ${item.pontuacao}  |  ${dataFormatada} - ${horaFormatada}</li> <br>`;
+      });
+
+    } else {
+      console.log("Erro na requisição", resposta.status);
+    }
+  }
+
+  obterPlacarUsuarios();
+</script>

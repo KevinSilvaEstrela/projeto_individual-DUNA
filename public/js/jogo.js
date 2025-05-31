@@ -16,7 +16,10 @@ var audio = document.querySelector(".audio");
 var pode_tocar = true;
 
 var recorde = localStorage.getItem("recorde") || 0;
+//var recorde = 0;
 recorde_elemento.innerText = `Recorde: ${recorde}`;
+
+
 
 var atualizar_posicao_comida = () => {
     comidaX = Math.floor(Math.random() * 30) + 1;
@@ -60,12 +63,14 @@ var iniciarJogo = () => {
         cobra_corpo.push([comidaY, comidaX]);
         pontos++;
 
-        if (pontos >= recorde) {
+        if (pontos > recorde) {
             recorde = pontos
-            if (pode_tocar) {
-                audio.play();
+            if (recorde > 3) {
+                if (pode_tocar) {
+                    audio.play();
+                }
+                pode_tocar = false;
             }
-            pode_tocar = false;
         }
 
         localStorage.setItem("recorde", recorde);
@@ -98,11 +103,15 @@ var iniciarJogo = () => {
 }
 
 atualizar_posicao_comida();
-setIntervalId = setInterval(iniciarJogo, 100);
+setIntervalId = setInterval(iniciarJogo, 110);
 document.addEventListener("keyup", mudar_direcao);
 
+
 function enviarPontuacao() {
-    var recordeVar = recorde;
+
+    buscarPontuacao();
+    
+    var pontuacaoVar = pontos;
     var id_usuarioVar = sessionStorage.ID_USUARIO;
 
     fetch("http://localhost:3333/snakeGameRoutes/enviarPontuacao/" + id_usuarioVar, {
@@ -111,17 +120,32 @@ function enviarPontuacao() {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            recordeServer: recordeVar,
-	        id_jogoServer: 1
+            pontuacaoServer: pontuacaoVar,
+            id_jogoServer: 1
         })
     })
 
-.then(res => {
-    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-    return res.json();
-})
-.then(data => console.log("Pontuação enviada:", data))
-.catch(err => console.error("Erro ao enviar pontuação:", err));
-
-
+        .then(res => {
+            if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+            return res.json();
+        })
+        .then(data => console.log("Pontuação enviada:", data))
+        .catch(err => console.error("Erro ao enviar pontuação:", err));
 }
+
+
+async function buscarPontuacao() {
+    var id_usuarioVar = sessionStorage.ID_USUARIO;
+    const resposta = await fetch("http://localhost:3333/snakeGameRoutes/buscarPontuacao/" + id_usuarioVar);
+
+    if (resposta.ok) {
+        const dados = await resposta.json();
+        console.log(dados)
+
+        recorde = dados[0]["MAX(pontuacao)"];
+        recorde_elemento.innerHTML = `Recorde: ${recorde}`;
+    } else {
+        console.log("Erro na requisição", resposta.status);
+    }
+}
+

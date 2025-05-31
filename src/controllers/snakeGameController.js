@@ -1,14 +1,13 @@
 var snakeGameModel = require("../models/snakeGameModel.js");
 
 function enviarPontuacao(req, res) {
-    var recorde = req.body.recordeServer;
+    var pontuacao = req.body.pontuacaoServer;
     var id_usuario = req.params.id_usuario;
-    var id_jogo = req.body.id_jogoServer;
 
     if (id_usuario == undefined) {
         res.status(400).send("Usuário indefinido!");
     } else {
-        snakeGameModel.enviarPontuacao(recorde, id_usuario, id_jogo)
+        snakeGameModel.enviarPontuacao(pontuacao, id_usuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
