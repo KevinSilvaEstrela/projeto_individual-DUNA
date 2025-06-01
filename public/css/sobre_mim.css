@@ -1,0 +1,45 @@
+.sobre-mim {
+    padding-top: 50px;
+    background-image: url(../assets/wallpaper-sobre-mim.png);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    border-top: 1px solid var(--dourado);
+}
+
+.sobre-mim .container p, h3{
+    color: white;
+    font-family: sans-serif;
+}
+
+h3 {
+    padding-left: 40px;
+    font-size: 25px;
+}
+
+.sobre-mim .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.texto {
+    width: 60%;
+    padding-top: 90px;
+    font-size: 20px;
+}
+
+.sobre-mim .quadro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 90px;
+    font-size: 20px;
+}
+
+.sobre-mim .quadro img{
+    width: 234.45px;
+    height: 310px;
+    border: 3px solid var(--dourado);
+    border-radius: 35px; 
+}

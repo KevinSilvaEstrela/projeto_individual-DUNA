@@ -64,8 +64,8 @@ button {
     height: 37px;
     cursor: pointer;
     margin-top: 25px;
-    color: white;
-    background-color: var(--cinza);
+    color: var(--cinza);
+    background-color: var(--douradoClaro);
     border-radius: 35px;
     border-style: double;
 }

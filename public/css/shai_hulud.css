@@ -1,0 +1,22 @@
+.shai_hulud {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.shai_hulud img{
+    align-self: center;
+    width: 70%;
+    height: 60%;
+    border: 1px solid var(--dourado);
+    border-radius: 20px;
+}
+
+.shai_hulud p{
+    margin-top: 20px;
+    align-self: center;
+    color: white;
+    max-width: 70%;
+    font-family: sans-serif;
+    font-size: 20px;
+}

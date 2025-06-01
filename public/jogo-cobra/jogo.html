@@ -16,7 +16,7 @@
   <div class="navbar-dashboard">
     <p>Olá <b id="nome_usuario"></b>, seja bem vindo(a)!</p>
 
-    <a href="../dashboard/dashboard.html">Métricas</a>
+    <a id="metricas" href="../dashboard/dashboard.html">Métricas</a>
     <a href="../jogo-cobra/tela_inicial.html">Jogo</a>
     <a href="../dashboard/quiz.html">Quiz</a>
     <a href="../index.html" class="voltar"><img src="../jogo-cobra/saida icone.png"
@@ -46,4 +46,10 @@
 <script>
   var nome_usuario = document.getElementById('nome_usuario');
   nome_usuario.innerText = sessionStorage.NOME_USUARIO;
+  
+  var metricas = document.getElementById('metricas')
+
+  if (!(sessionStorage.EMAIL_USUARIO == 'adm@gmail.com') && !(sessionStorage.NOME_USUARIO == 'ADM')) {
+    metricas.style.display = 'none';
+  }
 </script>

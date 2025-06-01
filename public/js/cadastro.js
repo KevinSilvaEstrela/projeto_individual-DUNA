@@ -1,29 +1,30 @@
-  function cadastrar() {
-    // aguardar();
+function cadastrar() {
+  // aguardar();
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_usuario.value;
-    var emailVar = email_usuario.value;
-    var senhaVar = senha_usuario.value;
-    var confirmacaoSenhaVar = confirmar_senha.value;
+  //Recupere o valor da nova input pelo nome do id
+  // Agora vá para o método fetch logo abaixo
+  var nomeVar = nome_usuario.value;
+  var emailVar = email_usuario.value;
+  var senhaVar = senha_usuario.value;
+  var confirmacaoSenhaVar = confirmar_senha.value;
 
-    // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == ""
-    ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
+  // Verificando se há algum campo em branco
+  if (
+    nomeVar == "" ||
+    emailVar == "" ||
+    senhaVar == "" ||
+    confirmacaoSenhaVar == ""
+  ) {
+    swal("Erro!", "Campos estão em branco!");
+    setInterval("...", 2000);
+    return false;
+  } else if (!(emailVar.includes("@")) || !(emailVar.includes("."))) {
+    swal("Ops!", "Formato inválido de e-mail!")
+  } else if (senhaVar.length < 4 ) {
+    swal("Ops!", "Senha precisa ter no mínimo 4 caracteres!")
+  } else {
+    swal("Usuario cadastrado com sucesso!")
+    setInterval(sumirMensagem, 5000);
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -65,8 +66,9 @@
 
     return false;
   }
+}
 
 
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
+function sumirMensagem() {
+  cardErro.style.display = "none";
+}
