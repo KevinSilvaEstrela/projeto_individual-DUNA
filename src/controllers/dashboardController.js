@@ -46,8 +46,24 @@ function partidasJogadas(req, res) {
         });
 }
 
+function topJogadores(req, res) {
+    dashboardModel.topJogadores()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar o top jogadores: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     quantUsuarios,
     placarUsuarios,
-    partidasJogadas
+    partidasJogadas,
+    topJogadores
 }

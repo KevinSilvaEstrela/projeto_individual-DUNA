@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>Consultas sobre Duna</h2>
+    <input type="text" id="query" placeholder="Pergunte algo...">
+    <button onclick="consult()">Consultar</button>
+    <p id="result"></p>
+
+    <script>
+      async function consult() {
+        const question = document.getElementById("query").value;
+        const response = await fetch("http://localhost:3000/consult", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ question })
+        });
+        const data = await response.json();
+        document.getElementById("result").textContent = data.answer;
+      }
+    </script>
+  </body>
+</html>
+
+

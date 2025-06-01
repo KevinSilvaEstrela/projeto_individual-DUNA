@@ -15,5 +15,9 @@ router.get("/partidasJogadas", function (req, res) {
     dashboardController.partidasJogadas(req, res);
 });
 
+router.get("/topJogadores", function (req, res) {
+    dashboardController.topJogadores(req, res);
+});
+
 
 module.exports = router;

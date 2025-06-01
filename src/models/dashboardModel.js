@@ -26,7 +26,21 @@ function placarUsuarios() {
 function partidasJogadas() {
     console.log("ACESSEI O DASHBOARD  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function partidasJogadas()");
     var instrucaoSql = `
-        SELECT COUNT (*) FROM pontuacao;
+        SELECT COUNT(*) FROM pontuacao;
+
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function topJogadores() {
+    console.log("ACESSEI O DASHBOARD  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function topJogadores()");
+    var instrucaoSql = `
+        SELECT u.nome, COUNT(*) AS 'partidas' FROM pontuacao p
+            JOIN usuario u ON id_usuario = fk_usuario
+        GROUP BY u.nome
+        ORDER BY COUNT(*) DESC
+        LIMIT 3;
 
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -34,8 +48,10 @@ function partidasJogadas() {
 }
 
 
+
 module.exports = {
     quantUsuarios,
     placarUsuarios,
-    partidasJogadas
+    partidasJogadas,
+    topJogadores
 }

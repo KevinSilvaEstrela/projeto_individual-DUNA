@@ -9,9 +9,9 @@
 </head>
 
 <style>
-  .placar {
-    display: flex;
-    flex-direction: column;
+  .placar-jogadores {
+    display: none;
+    text-align: center;
     align-items: center;
     position: absolute;
     width: 100vmin;
@@ -27,13 +27,24 @@
     color: white;
   }
 
-  .placar .titulo {
+  .placar-jogadores .titulo {
     color: #EFA608;
   }
 
   #recorde_usuarios {
     list-style-type: none;
     font-size: 20px;
+    text-align: left;
+    margin-left: 130px;
+  }
+
+  .close {
+    color: #EFA608;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
   }
 </style>
 
@@ -47,11 +58,12 @@
 
     <div class="container-botoes">
       <button class="iniciar" onclick="location.href='jogo.html'">Iniciar</button>
-      <button class="placar">Placar</button>
+      <button class="placar" onclick="exibirPlacar()">Placar</button>
     </div>
   </div>
 
-  <div class="placar">
+  <div class="placar-jogadores" id="placar-jogadores">
+    <span class="close" id="close">&times;</span>
     <h1 class="titulo">Placar</h1>
 
     <div>
@@ -67,6 +79,15 @@
 
 <script>
   const recorde_usuarios = document.getElementById('recorde_usuarios');
+  const placar_jogadores = document.getElementById('placar-jogadores');
+
+  function exibirPlacar() {
+    placar_jogadores.style.display = "block";
+  }
+
+  document.getElementById("close").addEventListener("click", () => {
+    placar_jogadores.style.display = "none";
+  });
 
   async function obterPlacarUsuarios() {
     const resposta = await fetch("http://localhost:3333/dashboardRoutes/placarUsuarios");
