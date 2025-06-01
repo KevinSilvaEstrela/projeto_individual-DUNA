@@ -20,6 +20,7 @@ CREATE TABLE usuario (
 CREATE TABLE jogo (
 	id_jogo INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
+	imagem_fundo VARCHAR (100)
 );
 
 CREATE TABLE pontuacao (
@@ -42,4 +43,4 @@ CREATE TABLE quiz (
 	PRIMARY KEY (id_quiz, fk_usuario)
 );
 
-insert into jogo (nome) values ('Shai Hulud"s game');
+insert into jogo (nome, imagem_fundo) values ('Shai Hulud"s game', '../jogo-cobra/top-down-desert.png');

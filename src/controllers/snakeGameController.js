@@ -24,7 +24,7 @@ function enviarPontuacao(req, res) {
 
 function buscarPontuacao(req, res) {
     var id_usuario = req.params.id_usuario;
-    
+
     if (id_usuario == undefined) {
         res.status(400).send("Usuário indefinido!");
     } else {
@@ -37,7 +37,7 @@ function buscarPontuacao(req, res) {
                         res.status(204).send("Nenhum resultado encontrado")
                     }
                 }
-            ).catch (
+            ).catch(
                 function (erro) {
                     console.log(erro);
                     console.log("Erro ao fazer a requisição!", erro.sqlMessage);
@@ -47,7 +47,29 @@ function buscarPontuacao(req, res) {
     }
 }
 
+function buscarImagemTitulo(req, res) {
+
+    snakeGameModel.buscarImagemTitulo()
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado)
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado")
+                }
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Erro ao fazer a requisição!", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+
 module.exports = {
     enviarPontuacao,
-    buscarPontuacao
+    buscarPontuacao,
+    buscarImagemTitulo
 }

@@ -18,7 +18,8 @@
         <a href="../dashboard/dashboard.html">Métricas</a>
         <a href="../jogo-cobra/tela_inicial.html">Jogo</a>
         <a href="quiz.html">Quiz</a>
-        <a href="../index.html" class="voltar"><img src="../jogo-cobra/exit_icon.png" style="width: 30px; padding-right: 10px;" alt="">Voltar</a>
+        <a href="../index.html" class="voltar"><img src="../jogo-cobra/saida icone.png"
+                style="width: 30px; padding-right: 10px;" alt="">Voltar</a>
     </div>
 
     <div class="conteudo">
@@ -32,12 +33,16 @@
             </div>
 
             <div id="top_jogadores">
-                <p>Top jogadores com mais partidas:</p>
+                <p><strong>Jogadores com mais partidas:</strong></p>
             </div>
         </div>
 
         <div class="graficoRosca">
             <canvas id="graficoRosca"></canvas>
+        </div>
+
+        <div class="graficoBarra">
+            <canvas id="graficoBarra"></canvas>
         </div>
 
 
@@ -81,12 +86,11 @@
                         display: true,
                         text: 'Casas reais mais escolhidas',
                     }
-                }   
-                
+                }
+
             }
         });
     }
-
 
     async function obterQuantUsuarios() {
         const resposta = await fetch("http://localhost:3333/dashboardRoutes/quantUsuarios");
@@ -97,7 +101,7 @@
             console.log(dados)
 
             const totalUsuarios = dados[0]["COUNT(*)"];
-            quant_usuarios.innerHTML = `Quantidade de usuários cadastrados: <br><br> ${totalUsuarios}`;
+            quant_usuarios.innerHTML = `<strong>Quantidade de usuários cadastrados:</strong> <br><br> ${totalUsuarios}`;
         } else {
             console.log("Erro na requisição", resposta.status);
         }
@@ -112,7 +116,7 @@
             console.log(dados)
 
             const totalUsuarios = dados[0]["COUNT(*)"];
-            partidas_jogadas.innerHTML = `Quantidade de Partidas do Shai Hulud's game Jogadas: <br><br> ${totalUsuarios}`;
+            partidas_jogadas.innerHTML = `<strong>Quantidade de Partidas do Shai Hulud's game Jogadas: </strong><br><br> ${totalUsuarios}`;
         } else {
             console.log("Erro na requisição", resposta.status);
         }
@@ -153,6 +157,8 @@
             console.log("Erro na requisição", resposta.status);
         }
     }
+
+    
 
     function executarFuncoes() {
         obterQuantUsuarios();

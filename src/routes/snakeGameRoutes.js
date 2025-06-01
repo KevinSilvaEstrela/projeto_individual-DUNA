@@ -11,5 +11,9 @@ router.get("/buscarPontuacao/:id_usuario", function (req, res) {
     snakeGameController.buscarPontuacao(req, res);
 });
 
+router.get("/buscarImagemTitulo", function (req, res) {
+    snakeGameController.buscarImagemTitulo(req, res);
+});
+
 
 module.exports = router;

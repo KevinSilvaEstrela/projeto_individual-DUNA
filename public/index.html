@@ -87,7 +87,8 @@
         <p>A franquia é composta por mais de 13 livros escritos ao longo das décadas, e os seus principais são:</p>
 
         <div class="container">
-            <button class="botao-esquerdo" onclick="diminuir()"><</button>
+            <button class="botao-esquerdo" onclick="diminuir()">
+                << /button>
 
                     <div class="livro" id="livro">
                         <img src="assets/livro 1.jpg" alt="">
@@ -235,12 +236,11 @@
             <div class="modal_arrakis" id="modal_arrakis">
                 <div class="modal-container">
                     <span class="close_arrakis">&times;</span>
-                    <p>Arrakis</p>
+                    <h4>Arrakis</h4>
                     <p>
-                        O planeta hhhh Lorem ipsum, dolor sit amet consectetur adipisicing 
-                        elit. Dolorem amet vitae officia eaque? Maiores, minima quos, totam 
-                        alias quo fugiat aliquam placeat facere, nesciunt cumque exercitationem 
-                        sint corrupti temporibus neque.
+                        Um planeta desértico e inóspito, famoso por ser a única fonte do melange, a "especiaria" mais
+                        valiosa do universo. Habitado pelos Fremen e lar dos gigantescos vermes de areia, Arrakis é o
+                        centro das disputas políticas e espirituais da saga.
                     </p>
                 </div>
             </div>
@@ -253,12 +253,10 @@
             <div class="modal_caladan" id="modal_caladan">
                 <div class="modal-container">
                     <span class="close_caladan">&times;</span>
-                    <p>Caladan</p>
+                    <h4>Caladan</h4>
                     <p>
-                        O planeta hhhh Lorem ipsum, dolor sit amet consectetur adipisicing 
-                        elit. Dolorem amet vitae officia eaque? Maiores, minima quos, totam 
-                        alias quo fugiat aliquam placeat facere, nesciunt cumque exercitationem 
-                        sint corrupti temporibus neque.
+                        Planeta natal da Casa Atreides antes de sua mudança para Arrakis. É um mundo oceânico, fértil e
+                        pacífico, com clima ameno e grandes florestas. Representa a honra e a nobreza dos Atreides.
                     </p>
                 </div>
             </div>
@@ -271,12 +269,11 @@
             <div class="modal_gieid" id="modal_gieid">
                 <div class="modal-container">
                     <span class="close_gieid">&times;</span>
-                    <p>Gieid Prime</p>
+                    <h4>Gieid Prime</h4>
                     <p>
-                        O planeta hhhh Lorem ipsum, dolor sit amet consectetur adipisicing 
-                        elit. Dolorem amet vitae officia eaque? Maiores, minima quos, totam 
-                        alias quo fugiat aliquam placeat facere, nesciunt cumque exercitationem 
-                        sint corrupti temporibus neque.
+                        Planeta industrial e poluído, é o lar da Casa Harkonnen. Seu ambiente sombrio e tóxico reflete a
+                        brutalidade e crueldade de seus governantes. É um mundo marcado pela exploração e decadência
+                        ambiental.
                     </p>
                 </div>
             </div>
@@ -291,12 +288,11 @@
             <div class="modal_chapterhouse" id="modal_chapterhouse">
                 <div class="modal-container">
                     <span class="close_chapterhouse">&times;</span>
-                    <p>Chapterhouse</p>
+                    <h4>Chapterhouse</h4>
                     <p>
-                        O planeta hhhh Lorem ipsum, dolor sit amet consectetur adipisicing 
-                        elit. Dolorem amet vitae officia eaque? Maiores, minima quos, totam 
-                        alias quo fugiat aliquam placeat facere, nesciunt cumque exercitationem 
-                        sint corrupti temporibus neque.
+                        Sede da Bene Gesserit no período posterior da saga. É um planeta onde as Irmãs treinam e
+                        desenvolvem suas habilidades. Durante os eventos tardios da série, passa por uma transformação
+                        ecológica para se tornar parcialmente desértico.
                     </p>
                 </div>
             </div>
@@ -309,12 +305,11 @@
             <div class="modal_kaitain" id="modal_kaitain">
                 <div class="modal-container">
                     <span class="close_kaitain">&times;</span>
-                    <p>Kaitain</p>
+                    <h4>Kaitain</h4>
                     <p>
-                        O planeta hhhh Lorem ipsum, dolor sit amet consectetur adipisicing 
-                        elit. Dolorem amet vitae officia eaque? Maiores, minima quos, totam 
-                        alias quo fugiat aliquam placeat facere, nesciunt cumque exercitationem 
-                        sint corrupti temporibus neque.
+                        Capital do Imperium durante o reinado do Imperador Shaddam Corrino IV. É um planeta de opulência
+                        e pompa, com vastos palácios e uma corte imperial elaborada, simbolizando o poder centralizado
+                        do trono Corrino.
                     </p>
                 </div>
             </div>
@@ -327,12 +322,11 @@
             <div class="modal_salusa" id="modal_salusa">
                 <div class="modal-container">
                     <span class="close_salusa">&times;</span>
-                    <p>Salusa Secundus</p>
+                    <h4>Salusa Secundus</h4>
                     <p>
-                        O planeta hhhh Lorem ipsum, dolor sit amet consectetur adipisicing 
-                        elit. Dolorem amet vitae officia eaque? Maiores, minima quos, totam 
-                        alias quo fugiat aliquam placeat facere, nesciunt cumque exercitationem 
-                        sint corrupti temporibus neque.
+                        Planeta-prisão brutal e inóspito, usado pela Casa Corrino para treinar suas tropas de elite, os
+                        Sardaukar. As condições extremas moldam guerreiros implacáveis, sendo um símbolo da dureza e da
+                        disciplina imperial.
                     </p>
                 </div>
             </div>
@@ -451,55 +445,55 @@
     document.getElementById('duna_jodorowsky').addEventListener("mouseover", () => {
         duna_jodorowsky.src = './assets/duna-jodorowsky.png';
     })
-    
+
     document.getElementById('duna_jodorowsky').addEventListener("mouseout", () => {
         duna_jodorowsky.src = './assets/duna-jodorowsky.png';
     })
-    
+
     document.getElementById('duna_1984').addEventListener("mouseover", () => {
         duna_1984.src = './assets/planeta1.png';
     })
-    
+
     document.getElementById('duna_1984').addEventListener("mouseout", () => {
         duna_1984.src = './assets/duna-1984.png';
     })
-    
+
     document.getElementById('duna_2000').addEventListener("mouseover", () => {
         duna_2000.src = './assets/planeta1.png';
     })
-    
+
     document.getElementById('duna_2000').addEventListener("mouseout", () => {
         duna_2000.src = './assets/duna-2000.png';
     })
-    
+
     document.getElementById('duna_2003').addEventListener("mouseover", () => {
         duna_2003.src = './assets/planeta1.png';
     })
-    
+
     document.getElementById('duna_2003').addEventListener("mouseout", () => {
         duna_2003.src = './assets/duna-2003.png';
     })
-    
+
     document.getElementById('duna_2021').addEventListener("mouseover", () => {
         duna_2021.src = './assets/2021.gif';
     })
-    
+
     document.getElementById('duna_2021').addEventListener("mouseout", () => {
         duna_2021.src = './assets/duna-2021.png';
     })
-    
+
     document.getElementById('duna_2024').addEventListener("mouseover", () => {
         duna_2024.src = './assets/2024.gif';
     })
-    
+
     document.getElementById('duna_2024').addEventListener("mouseout", () => {
         duna_2024.src = './assets/duna-2024.png';
     })
-    
+
     document.getElementById('duna_profecia').addEventListener("mouseover", () => {
         duna_profecia.src = './assets/planeta1.png';
     })
-    
+
     document.getElementById('duna_profecia').addEventListener("mouseout", () => {
         duna_profecia.src = './assets/duna-profecia.png';
     })
@@ -577,7 +571,7 @@
             modal_arrakis.style.display = "none";
         }
     }
-    
+
     window.onclick = function (event) {
         if (event.target == modal_caladan) {
             modal_caladan.style.display = "none";

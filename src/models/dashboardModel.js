@@ -58,6 +58,25 @@ function casasMaisEscolhidas() {
     return database.executar(instrucaoSql);
 }
 
+function tiposDePartidas() {
+    console.log("ACESSEI O DASHBOARD  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function tiposDePartidas()");
+    var instrucaoSql = `
+        SELECT dia, tipo_partida, COUNT(*) AS total_partidas FROM (
+            SELECT DATE(data) AS dia, 'jogo' AS tipo_partida FROM pontuacao
+    
+            UNION ALL
+
+    
+            SELECT DATE(data) AS dia, 'quiz' AS tipo_partida FROM quiz) AS partidas_normalizadas
+        GROUP BY dia, tipo_partida
+        ORDER BY dia ASC, tipo_partida;
+
+
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 
 
 module.exports = {
@@ -65,5 +84,6 @@ module.exports = {
     placarUsuarios,
     partidasJogadas,
     topJogadores,
-    casasMaisEscolhidas
+    casasMaisEscolhidas,
+    tiposDePartidas
 }

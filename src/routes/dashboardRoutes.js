@@ -23,5 +23,9 @@ router.get("/casasMaisEscolhidas", function (req, res) {
     dashboardController.casasMaisEscolhidas(req, res);
 });
 
+router.get("/tiposDePartidas", function (req, res) {
+    dashboardController.tiposDePartidas(req, res);
+});
+
 
 module.exports = router;

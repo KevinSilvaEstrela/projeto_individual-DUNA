@@ -1,6 +1,8 @@
 var jogo = document.querySelector(".jogo");
+var titulo = document.querySelector(".titulo");
 var pontos_elemento = document.querySelector(".pontos");
 var recorde_elemento = document.querySelector(".recorde");
+
 
 var finalizar_jogo = false;
 
@@ -102,6 +104,7 @@ var iniciarJogo = () => {
     jogo.innerHTML = html;
 }
 
+buscarImagemTitulo();
 atualizar_posicao_comida();
 setIntervalId = setInterval(iniciarJogo, 110);
 document.addEventListener("keyup", mudar_direcao);
@@ -110,7 +113,7 @@ document.addEventListener("keyup", mudar_direcao);
 function enviarPontuacao() {
 
     buscarPontuacao();
-    
+
     var pontuacaoVar = pontos;
     var id_usuarioVar = sessionStorage.ID_USUARIO;
 
@@ -149,3 +152,20 @@ async function buscarPontuacao() {
     }
 }
 
+async function buscarImagemTitulo() {
+    const resposta = await fetch("http://localhost:3333/snakeGameRoutes/buscarImagemTitulo");
+
+    if (resposta.ok) {
+        console.log('buscarImagemTitulo funcionou!');
+        const dados = await resposta.json();
+        console.log(dados)
+
+        dados.forEach(function (item) {
+            titulo.innerHTML = `${item.nome}`
+            jogo.style = `background-image: url("${item.imagem_fundo}");`
+        });
+
+    } else {
+        console.log("Erro na requisição", resposta.status);
+    }
+}
