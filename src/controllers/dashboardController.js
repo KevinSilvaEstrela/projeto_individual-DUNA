@@ -26,7 +26,7 @@ function placarUsuarios(req, res) {
             }
         }).catch(function (erro) {
             console.log(erro);
-            console.log("Houve um erro ao buscar a quantidade de usuários: ", erro.sqlMessage);
+            console.log("Houve um erro ao buscar o placar de usuários: ", erro.sqlMessage);
             res.status(500).json(erro.sqlMessage);
         });
 }
@@ -61,9 +61,25 @@ function topJogadores(req, res) {
         });
 }
 
+function casasMaisEscolhidas(req, res) {
+    dashboardModel.casasMaisEscolhidas()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar a quantidade de casas: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     quantUsuarios,
     placarUsuarios,
     partidasJogadas,
-    topJogadores
+    topJogadores,
+    casasMaisEscolhidas
 }

@@ -1,30 +1,47 @@
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - youtube.com/codingnepal -->
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Shai Hulud's Game</title>
-    <link rel="stylesheet" href="../css/jogo.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../js/jogo.js" defer></script>
-  </head>
-  <body>
-    <div class="container"> 
-      <div onclick="location.href='tela_inicial.html'"><img class="sair" src="exit_icon.png" alt=""></div>
-      <h1>Shai Hulud's Game</h1>
-  
-      <div class="pontuacao-jogo">
-        <span class="pontos">Pontos: 0</span>
-        <span class="recorde">Recorde: 0</span>
-      </div>
-      
-      <div class="jogo"></div>
 
-      <audio controls class="audio" style="opacity: 0%;">
-        <source src="../assets/audio/Dune scream song meme - 5 segundos e acelerado.mp3" type="audio/mpeg">
-      </audio>
-      
+<head>
+  <meta charset="utf-8">
+  <title>Shai Hulud's Game</title>
+  <link rel="stylesheet" href="../css/jogo.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../js/jogo.js" defer></script>
+</head>
+
+<body>
+  <div class="navbar-dashboard">
+    <p>Olá <b id="nome_usuario"></b>, seja bem vindo(a)!</p>
+
+    <a href="../dashboard/dashboard.html">Métricas</a>
+    <a href="../jogo-cobra/tela_inicial.html">Jogo</a>
+    <a href="../dashboard/quiz.html">Quiz</a>
+    <a href="../index.html" class="voltar"><img src="../jogo-cobra/exit_icon.png" style="width: 30px; padding-right: 10px;" alt="">Voltar</a>
+  </div>
+  <div class="container">
+    <div onclick="location.href='tela_inicial.html'"><img class="sair" src="exit_icon.png" alt=""></div>
+    <h1>Shai Hulud's Game</h1>
+
+    <div class="pontuacao-jogo">
+      <span class="pontos">Pontos: 0</span>
+      <span class="recorde">Recorde: 0</span>
     </div>
 
-  </body>
+    <div class="jogo"></div>
+
+    <audio controls class="audio" style="opacity: 0%;">
+      <source src="../assets/audio/Dune scream song meme - 5 segundos e acelerado.mp3" type="audio/mpeg">
+    </audio>
+
+  </div>
+
+</body>
+
 </html>
+
+<script>
+  var nome_usuario = document.getElementById('nome_usuario');
+  nome_usuario.innerText = sessionStorage.NOME_USUARIO;
+</script>

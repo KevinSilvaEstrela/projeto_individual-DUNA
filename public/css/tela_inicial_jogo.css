@@ -19,6 +19,7 @@ body {
   background-image: url(../jogo-cobra/capa\ da\ tela.png);
   background-size: cover;
   font-family: "Dune Rise";
+  margin-left: 30%;
 }
 
 .tela_inicial .container-titulo {
@@ -72,3 +73,42 @@ body {
   margin-right: 10px;
   cursor: pointer;
 }
+
+  .placar-jogadores {
+    display: none;
+    text-align: center;
+    align-items: center;
+    position: absolute;
+    width: 100vmin;
+    height: 80vmin;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+    font-family: "Dune Rise";
+    color: white;
+    margin-left: 30%;
+  }
+
+  .placar-jogadores .titulo {
+    color: #EFA608;
+  }
+
+  #recorde_usuarios {
+    list-style-type: none;
+    font-size: 20px;
+    text-align: left;
+    margin-left: 130px;
+  }
+
+  .close {
+    color: #EFA608;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+  }

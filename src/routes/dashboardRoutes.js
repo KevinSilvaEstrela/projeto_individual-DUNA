@@ -19,5 +19,9 @@ router.get("/topJogadores", function (req, res) {
     dashboardController.topJogadores(req, res);
 });
 
+router.get("/casasMaisEscolhidas", function (req, res) {
+    dashboardController.casasMaisEscolhidas(req, res);
+});
+
 
 module.exports = router;

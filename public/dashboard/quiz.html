@@ -1,26 +1,183 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <h2>Consultas sobre Duna</h2>
-    <input type="text" id="query" placeholder="Pergunte algo...">
-    <button onclick="consult()">Consultar</button>
-    <p id="result"></p>
+<html lang="pt-BR">
 
-    <script>
-      async function consult() {
-        const question = document.getElementById("query").value;
-        const response = await fetch("http://localhost:3000/consult", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ question })
-        });
-        const data = await response.json();
-        document.getElementById("result").textContent = data.answer;
-      }
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz de Duna - Qual sua casa?</title>
+  <link rel="stylesheet" href="../css/quiz.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="shortcut icon" href="../assets/dune-ico.ico" type="image/x-icon">
+</head>
+
+<body>
+  <div class="navbar-dashboard">
+    <p>Olá <b id="nome_usuario"></b>, seja bem vindo!</p>
+
+    <a href="../dashboard/dashboard.html">Métricas</a>
+    <a href="../jogo-cobra/tela_inicial.html">Jogo</a>
+    <a href="quiz.html">Quiz</a>
+    <a href="../index.html" class="voltar"><img src="../jogo-cobra/exit_icon.png" style="width: 30px; padding-right: 10px;" alt="">Voltar</a>
+  </div>
+
+  <div class="quiz-container">
+    <h1>Quiz de Duna: Qual e sua Casa Real?</h1>
+    <div id="quiz"></div>
+    <button id="next">Próxima</button>
+    <div id="Resultado" class="hidden"></div>
+  </div>
+</body>
+
 </html>
 
+<script>
+  var nome_usuario = document.getElementById('nome_usuario');
+  nome_usuario.innerText = sessionStorage.NOME_USUARIO;
 
+  const quizData = [
+    {
+      Pergunta: "Você prefere liderar com...",
+      answers: [
+        { text: "Justiça e empatia", house: "Atreides" },
+        { text: "Medo e controle", house: "Harkonnen" },
+        { text: "Ordem e tradição", house: "Corrino" },
+        { text: "Conhecimento e tecnologia", house: "Richese" }
+      ]
+    },
+    {
+      Pergunta: "Qual valor você mais preza?",
+      answers: [
+        { text: "Lealdade", house: "Atreides" },
+        { text: "Poder", house: "Harkonnen" },
+        { text: "Legado", house: "Corrino" },
+        { text: "Inovação", house: "Vernius" }
+      ]
+    },
+    {
+      Pergunta: "Qual cenário você escolheria para viver?",
+      answers: [
+        { text: "Planeta oceânico com bons aliados", house: "Atreides" },
+        { text: "Planeta sombrio e estratégico", house: "Harkonnen" },
+        { text: "Capital imperial imponente", house: "Corrino" },
+        { text: "Mundo industrial altamente tecnológico", house: "Richese" }
+      ]
+    },
+    {
+      Pergunta: "Como você resolve conflitos?",
+      answers: [
+        { text: "Diplomacia", house: "Atreides" },
+        { text: "Manipulação", house: "Harkonnen" },
+        { text: "Comando direto", house: "Corrino" },
+        { text: "Inteligência técnica", house: "Vernius" }
+      ]
+    },
+    {
+      Pergunta: "Seu maior objetivo é...",
+      answers: [
+        { text: "Unir e proteger", house: "Atreides" },
+        { text: "Conquistar tudo", house: "Harkonnen" },
+        { text: "Controlar o império", house: "Corrino" },
+        { text: "Avançar o conhecimento", house: "Richese" }
+      ]
+    }
+  ];
+
+  const houseimagens = {
+    Atreides: "../assets/img-quiz/house atreides.jpg",
+    Harkonnen: "../assets/img-quiz/house harkonnen.jpg",
+    Corrino: "../assets/img-quiz/house corrino.jpg",
+    Richese: "../assets/img-quiz/house richese.jpg",
+    Vernius: "../assets/img-quiz/house vernius.jpg"
+  };
+
+  const descricaoHouse = {
+    Atreides: "Você é leal, nobre e estrategista. A Casa Atreides valoriza honra, justiça e liderança empática.",
+    Harkonnen: "Você é ambicioso, ousado e calculista. A Casa Harkonnen domina pela força e manipulação.",
+    Corrino: "Você é disciplinado, tradicional e autoritário. A Casa Corrino defende o império e a ordem.",
+    Richese: "Você é analítico, curioso e engenhoso. A Casa Richese se destaca por sua genialidade tecnológica.",
+    Vernius: "Você é independente, visionário e progressista. A Casa Vernius valoriza liberdade e inovação."
+  };
+
+
+  var perguntaAtual = 0;
+  var pontos = {
+    Atreides: 0,
+    Harkonnen: 0,
+    Corrino: 0,
+    Richese: 0,
+    Vernius: 0
+  };
+
+  const quizContainer = document.getElementById("quiz");
+  const nextButton = document.getElementById("next");
+  const ResultadoContainer = document.getElementById("Resultado");
+
+  function exibirPergunta() {
+    const PerguntaData = quizData[perguntaAtual];
+    quizContainer.innerHTML = `
+    <h2>${PerguntaData.Pergunta}</h2>
+    <div class="answers">
+      ${PerguntaData.answers.map((ans, idx) =>
+      `<button onclick="selectAnswer('${ans.house}')">${ans.text}</button>`).join('')}
+    </div>
+  `;
+  }
+
+  function selectAnswer(house) {
+    pontos[house]++;
+    nextButton.style.display = 'block';
+  }
+
+  nextButton.addEventListener("click", () => {
+    perguntaAtual++;
+    nextButton.style.display = 'none';
+    if (perguntaAtual < quizData.length) {
+      exibirPergunta();
+    } else {
+      exibirResultado();
+    }
+  });
+
+  var resultadoFinal = "";
+
+  function exibirResultado() {
+    quizContainer.innerHTML = '';
+    const maioresCasas = Object.entries(pontos).sort((a, b) => b[1] - a[1])[0][0];
+    resultadoFinal = maioresCasas;
+
+    const imagemURL = houseimagens[maioresCasas];
+    const descricao = descricaoHouse[maioresCasas];
+
+    ResultadoContainer.classList.remove("hidden");
+    ResultadoContainer.innerHTML = `
+    <h2>Você pertence à Casa <strong>${maioresCasas}</strong>!</h2>
+    <img src="${imagemURL}" alt="imagemm da Casa ${maioresCasas}" class="house-imagem" style="width: 60%;"/> <p style="margin-top: 15px; font-size: 18px;">${descricao}</p>`;
+    enviarCasaReal()
+  }
+
+  function enviarCasaReal() {
+
+    var resultadoFinalVar = resultadoFinal;
+    var id_usuarioVar = sessionStorage.ID_USUARIO;
+
+    fetch("http://localhost:3333/quizRoutes/enviarCasaReal/" + id_usuarioVar, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        resultadoFinalServer: resultadoFinalVar
+      })
+    })
+
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        return res.json();
+      })
+      .then(data => console.log("Casa Real enviada:", data))
+      .catch(err => console.error("Erro ao enviar pontuação:", err));
+  }
+
+
+  exibirPergunta();
+</script>

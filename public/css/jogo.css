@@ -20,6 +20,7 @@ body {
   border-radius: 5px;
   background: #293447;
   border-radius: 20px;
+  margin-left: 18%;
 }
 
 .container h1{
@@ -70,4 +71,8 @@ body {
   margin-top: 10px;
   margin-right: 10px;
   cursor: pointer;
+}
+
+p {
+  color: #0f0f0f;
 }

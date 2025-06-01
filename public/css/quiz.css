@@ -1,0 +1,77 @@
+@font-face {
+    font-family: "Dune Rise";
+    src: url(../assets/font/Dune_Rise.ttf);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0f0f0f;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.navbar-dashboard {
+    color: #0f0f0f;
+}
+
+h1 {
+    font-family: 'Dune Rise';
+    color: #EFA608;
+}
+
+.quiz-container {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    max-height: 100vh;
+    width: 90%;
+    text-align: center;
+    margin-left: 10%;
+}
+
+button {
+    background-color: #bb9457;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #a97b50;
+    color: #FFCE65;
+}
+
+.answers button {
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    background-color: #444;
+}
+
+#Resultado {
+    font-size: 24px;
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px solid #bb9457;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.house-image {
+    margin-top: 20px;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #bb9457;
+}

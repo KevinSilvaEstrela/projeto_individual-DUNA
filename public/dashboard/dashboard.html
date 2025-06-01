@@ -5,72 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="shortcut icon" href="../assets/dune-ico.ico" type="image/x-icon">
     <title>Dashboard</title>
 </head>
 
-<style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .navbar-dashboard {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 18%;
-        background-color: var(--dourado);
-    }
-
-    .conteudo {
-        display: flex;
-        flex-direction: column;
-        margin-left: 20%;
-        text-align: center;
-        color: wheat;
-    }
-
-    .titulo {
-        font-family: 'Dune Rise';
-    }
-
-    .metricas {
-        display: flex;
-        flex-direction: row;
-        gap: 50px;
-    }
-
-    .metricas div {
-        border: 1px solid white;
-        border-radius: 20px;
-        margin-left: 20px;
-    }
-
-    #quant_usuarios {
-        padding: 10px 10px 10px 10px;
-    }
-
-    #partidas_jogadas {
-        padding: 10px 10px 10px 10px;
-    }
-
-    #top_jogadores {
-        padding: 10px 10px 10px 10px;
-        list-style-type: none;
-    }
-</style>
-
 <body>
     <div class="navbar-dashboard">
-        <p>Olá <b id="nome_usuario"></b>, seja bem vindo!</p>
+        <p>Olá <b id="nome_usuario"></b>, seja bem vindo(a)!</p>
 
-        <a href="../index.html">Voltar</a>
+        <a href="../dashboard/dashboard.html">Métricas</a>
         <a href="../jogo-cobra/tela_inicial.html">Jogo</a>
         <a href="quiz.html">Quiz</a>
+        <a href="../index.html" class="voltar"><img src="../jogo-cobra/exit_icon.png" style="width: 30px; padding-right: 10px;" alt="">Voltar</a>
     </div>
 
     <div class="conteudo">
@@ -88,6 +36,10 @@
             </div>
         </div>
 
+        <div class="graficoRosca">
+            <canvas id="graficoRosca"></canvas>
+        </div>
+
 
     </div>
 </body>
@@ -101,6 +53,40 @@
     const quant_usuarios = document.getElementById('quant_usuarios');
     const partidas_jogadas = document.getElementById('partidas_jogadas');
     const top_jogadores = document.getElementById('top_jogadores');
+
+    var nome_casas = []
+    var quantidade_casas = []
+
+
+    function exibirGraficoRosca() {
+
+        var graficoRosca = new Chart(document.getElementById('graficoRosca').getContext('2d'), {
+            type: 'doughnut',
+            data: {
+                labels: nome_casas,
+                datasets: [{
+                    label: 'Quantidade',
+                    data: quantidade_casas,
+                    borderColor: ['blue', 'green', 'red', 'yellow', 'purple'],
+                    borderWidth: 3,
+                    fill: false
+                }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Casas reais mais escolhidas',
+                    }
+                }   
+                
+            }
+        });
+    }
+
 
     async function obterQuantUsuarios() {
         const resposta = await fetch("http://localhost:3333/dashboardRoutes/quantUsuarios");
@@ -126,7 +112,7 @@
             console.log(dados)
 
             const totalUsuarios = dados[0]["COUNT(*)"];
-            partidas_jogadas.innerHTML = `Quantidade de Partidas Jogadas: <br><br> ${totalUsuarios}`;
+            partidas_jogadas.innerHTML = `Quantidade de Partidas do Shai Hulud's game Jogadas: <br><br> ${totalUsuarios}`;
         } else {
             console.log("Erro na requisição", resposta.status);
         }
@@ -150,10 +136,30 @@
         }
     }
 
+    async function obterCasasMaisEscolhidas() {
+        const resposta = await fetch("http://localhost:3333/dashboardRoutes/casasMaisEscolhidas");
+
+        if (resposta.ok) {
+            console.log('casasMaisEscolhidas funcionou!');
+            const dados = await resposta.json();
+            console.log(dados)
+
+            dados.forEach(function (item) {
+                nome_casas.push(item["Nome da Casa"]);
+                quantidade_casas.push(item.Quantidade);
+            });
+
+        } else {
+            console.log("Erro na requisição", resposta.status);
+        }
+    }
+
     function executarFuncoes() {
         obterQuantUsuarios();
         obtertopJogadores();
         obterPartidasJogadas();
+        obterCasasMaisEscolhidas();
+        exibirGraficoRosca();
     }
 
     executarFuncoes()

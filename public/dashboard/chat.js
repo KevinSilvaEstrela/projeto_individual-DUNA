@@ -1,11 +1,15 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import express from "express";
 import bodyParser from "body-parser";
+import cors from "cors";
+
+
 import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 // const API_KEY = process.env.GEMINI_API_KEY;
 const API_KEY = "AIzaSyCctE0rncKjrZa2aYgOBu_v-dRAi555bfk"
@@ -30,19 +34,26 @@ let embeddings = [];
 async function generateEmbeddings() {
   for (let doc of documents) {
     const result = await model.embedContent({
-      content: doc.output,
+      content: {
+        parts: [{ text: doc.output }]
+      },
       taskType: "RETRIEVAL_DOCUMENT"
     });
-    embeddings.push({ ...doc, vector: result.embedding });
+
+    // Corrigido: use `.embedding.values`
+    embeddings.push({ ...doc, vector: result.embedding.values });
+
   }
 }
 
-// Função para consulta
 async function findClosestMatch(query) {
   const queryEmbedding = (await model.embedContent({
-    content: query,
-    taskType: "RETRIEVAL_DOCUMENT"
-  })).embedding;
+    content: {
+      parts: [{ text: query }]
+    },
+    taskType: "RETRIEVAL_QUERY"
+  })).embedding.values;
+
 
   const scores = embeddings.map((doc) => {
     const dot = doc.vector.reduce((acc, val, idx) => acc + val * queryEmbedding[idx], 0);
@@ -53,6 +64,9 @@ async function findClosestMatch(query) {
   return scores[0].output;
 }
 
+
+
+
 // API para consulta
 app.post("/consult", async (req, res) => {
   const { question } = req.body;
@@ -62,6 +76,10 @@ app.post("/consult", async (req, res) => {
 
 // Inicializa servidor
 app.listen(3000, async () => {
-  await generateEmbeddings();
-  console.log("Servidor rodando em http://localhost:3000");
+  try {
+    await generateEmbeddings();
+    console.log("Servidor rodando em http://localhost:3000");
+  } catch (err) {
+    console.error("Erro ao gerar embeddings:", err);
+  }
 });
