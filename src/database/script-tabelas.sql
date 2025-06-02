@@ -12,9 +12,9 @@ USE duna;
 
 CREATE TABLE usuario (
 	id_usuario INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50)
+	nome VARCHAR(45),
+	email VARCHAR(45),
+	senha VARCHAR(45)
 );
 
 CREATE TABLE jogo (
